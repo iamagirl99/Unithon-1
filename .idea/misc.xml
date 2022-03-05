@@ -13,10 +13,46 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.2346014492753623" />
         <entry key="app/src/main/res/layout/summary_diary.xml" value="0.2346014492753623" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/drawable/round_button.xml" value="0.17" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/drawable/shadow_button.xml" value="0.35820894502642775" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/layout/activity_main.xml" value="0.20625" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/layout/login_layout.xml" value="0.2364179037174423" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/layout/new_diary.xml" value="0.2364179037174423" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.2445" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/drawable/side_nav_bar.xml" value="0.193" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/activity_diary.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/activity_gather_diary.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/activity_home.xml" value="0.22" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/activity_main.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/app_bar_main.xml" value="0.3962962962962963" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/content_main.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/fragment_my_diary.xml" value="0.22" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/item_page.xml" value="0.22" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/nav_header.xml" value="0.5" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/nav_header_main.xml" value="0.2" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/nav_menu.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/summary_diary.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/tab_fragment.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
+        <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/menu/main.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/diary_background_border_white.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/diary_border_white.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.147" />
+        <entry key="app/src/main/res/drawable/image_border.xml" value="0.147" />
+        <entry key="app/src/main/res/font/font.xml" value="0.1671875" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1818756103515625" />
+        <entry key="app/src/main/res/layout/activity_diary.xml" value="0.2307693481445313" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/activity_read.xml" value="0.18392333984374998" />
+        <entry key="app/src/main/res/layout/comment.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
