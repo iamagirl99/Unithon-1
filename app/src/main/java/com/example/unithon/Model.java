@@ -1,11 +1,29 @@
 package com.example.unithon;
 
+import java.util.ArrayList;
+
 public class Model {
     public static class Diary {
         public Diary() {
             this.name = "테스트 다이어리";
+            this.pages = new ArrayList<>();
+            this.bookmarks = new ArrayList<>();
         }
         String name;
+        ArrayList<Page> pages;
+        ArrayList<Integer> bookmarks;
+
+        public String getName() {
+            return name;
+        }
+
+        public ArrayList<Page> getPages() {
+            return pages;
+        }
+
+        public ArrayList<Integer> getBookmarks() {
+            return bookmarks;
+        }
     }
   
     public static class Comment {
