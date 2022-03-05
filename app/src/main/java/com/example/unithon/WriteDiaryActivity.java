@@ -21,6 +21,10 @@ import android.widget.Toast;
 
 import com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity;
 import com.dsphotoeditor.sdk.utils.DsPhotoEditorConstants;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
+
+import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
 public class WriteDiaryActivity extends AppCompatActivity {
@@ -42,9 +46,29 @@ public class WriteDiaryActivity extends AppCompatActivity {
 //            }
 //        })
 
+        PermissionListener permissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                Toast.makeText(WriteDiaryActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                Toast.makeText(WriteDiaryActivity.this, "권한 거부", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+
         btPick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                TedPermission.with(getApplicationContext())
+                        .setPermissionListener(permissionListener)
+                        .setRationaleMessage("다이어리를 작성하기 위해서 권한 허가가 필요해요")
+                        .setDeniedMessage("왜 거부하셨어요...\n하지만 [설정] > [권한] 에서 권한을 허용할 수 있어요.")
+                        .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.INTERNET)
+                        .check();
+
                 checkPermission();
             }
         });
