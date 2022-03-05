@@ -1,4 +1,4 @@
-package com.example.unithon;
+package com.example.unithon.Home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.unithon.Model;
+import com.example.unithon.R;
 
 import java.util.ArrayList;
 
@@ -42,7 +45,7 @@ public class HomeGridAdapter extends BaseAdapter {
         }
 
         TextView diaryNameTv = view.findViewById(R.id.diary_name);
-        diaryNameTv.setText(diary.name);
+        diaryNameTv.setText(diary.getName());
 
         return view;
     }

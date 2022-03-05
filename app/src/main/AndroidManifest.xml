@@ -30,8 +30,8 @@
 <!--        </intent-filter>-->
 
         <activity
-            android:name=".CommentActivity"
-            android:exported="false"
+            android:name=".Comment.CommentActivity"
+            android:exported="true"
             android:theme="@style/Theme.Unithon.NoActionBar"/>
         <activity
             android:name=".ReadActivity"
@@ -41,11 +41,6 @@
             android:name=".DiaryActivity"
             android:exported="false"
             android:theme="@style/Theme.Unithon.NoActionBar">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".MainActivity"
@@ -58,6 +53,17 @@
             android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorCropActivity"/>
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorDrawActivity"/>
+
+        <activity
+            android:name=".GatherDiaryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Unithon.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
