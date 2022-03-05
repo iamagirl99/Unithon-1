@@ -66,6 +66,7 @@ public class ReadActivity extends AppCompatActivity {
         gather_diary_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // TODO : 어떤 다이어리인지 인덱스 번호 인텐트에 담아서 보내기.
                 Intent intent = new Intent(getApplicationContext(), GatherDiaryActivity.class);
                 startActivity(intent);
             }
