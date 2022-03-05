@@ -51,6 +51,7 @@ public class ReadActivity extends AppCompatActivity {
         DiaryViewPagerAdapter viewPagerAdapter = new DiaryViewPagerAdapter(this, DummyData.diaries.get(diary_num).getPages());
         viewPager2.setAdapter(viewPagerAdapter);
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        viewPager2.setCurrentItem(DummyData.diaries.get(diary_num).getPages().size()-1, true);
         comment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
