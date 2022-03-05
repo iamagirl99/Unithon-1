@@ -3,6 +3,7 @@ package com.example.unithon.Home;
 import static com.example.unithon.DummyData.currentUser;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     GridView gridView;
+    HomeGridAdapter gridAdapter;
 
     @Nullable
     @Override
@@ -28,11 +30,17 @@ public class HomeFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
         gridView = rootView.findViewById(R.id.gridView);
-        HomeGridAdapter gridAdapter = new HomeGridAdapter(currentUser.getDiaries());
+        gridAdapter = new HomeGridAdapter(currentUser.getDiaries());
         gridView.setAdapter(gridAdapter);
 
         return rootView;
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e("$$$$", currentUser.getDiaries().size() + "");
+        gridAdapter.notifyList(currentUser.getDiaries());
+        gridAdapter.notifyDataSetChanged();
+    }
 }

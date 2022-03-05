@@ -11,8 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class GatherDiaryActivity extends AppCompatActivity {
-
+public class BookmarkedPagesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +20,22 @@ public class GatherDiaryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int diary_num = intent.getIntExtra("diary_num", -1);
 
-        Model.Diary diary;
-        diary = currentUser.getDiaries().get(diary_num).getDiary();
+        Model.CustomDiary diary = currentUser.getDiaries().get(diary_num);
 
         GridView gridView = findViewById(R.id.pages_grid_view);
 
-        PagesGridAdapter gridAdapter = new PagesGridAdapter(diary.getPages(), diary_num);
+        if (diary == null) {
+            return;
+        }
+
+        ArrayList<Integer> bookmarks = diary.getBookmarks();
+        ArrayList<Model.Page> pages = new ArrayList<>();
+
+        for (Integer i : bookmarks) {
+            pages.add(diary.getDiary().getPages().get(i));
+        }
+
+        PagesGridAdapter gridAdapter = new PagesGridAdapter(pages, diary_num);
         gridView.setAdapter(gridAdapter);
     }
 }

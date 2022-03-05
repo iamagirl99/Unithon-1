@@ -1,8 +1,12 @@
 package com.example.unithon;
 
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class DummyData {
+    public static final int MAX_MEMBER = 7;
     public static Model.User currentUser;
     public static ArrayList<Model.Diary> diaries;
     public static ArrayList<Integer> coverSrcList  = new ArrayList<Integer>() {
@@ -32,7 +36,8 @@ public class DummyData {
 
     void init_my_diaries() {
         for (int i = 0; i < 10; i++) {
-            Model.CustomDiary diary = new Model.CustomDiary();
+            Model.Diary my_diary = new Model.Diary("My Diary", currentUser.id, currentUser.id);
+            Model.CustomDiary diary = new Model.CustomDiary(my_diary);
             currentUser.diaries.add(diary);
         }
     }
@@ -47,7 +52,7 @@ public class DummyData {
 
     void init_diaries() {
         for (int i = 0; i < 10; i++) {
-            Model.Diary diary = new Model.Diary();
+            Model.Diary diary = new Model.Diary("test diary", "Other", "Other");
             diaries.add(diary);
         }
     }

@@ -50,16 +50,10 @@ public class MainActivity extends AppCompatActivity {
     private FragmentAdapter adapter;
     private Button newDiary;
 
-    public static DummyData dummyData;
-    void init_dummy() {
-        dummyData = new DummyData();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        init_dummy();
 
         setContentView(R.layout.activity_main);
 
