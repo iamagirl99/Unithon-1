@@ -1,6 +1,8 @@
 package com.example.unithon.DiaryDetail;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,14 +34,18 @@ public class DiaryViewPagerAdapter extends RecyclerView.Adapter<DiaryViewPagerAd
         return new ViewHolder(view);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model.Page page = pages.get(position);
-        holder.imageView.setImageResource(context.getResources().getIdentifier(page.getImage(), "drawable", context.getPackageName()));
+        holder.imageView.setImageResource(R.drawable.diary);
+        holder.imageView.setBackgroundColor(R.color.black);
+//        holder.imageView.setImageResource(context.getResources().getIdentifier(page.getImage(), "drawable", context.getPackageName()));
     }
 
     @Override
     public int getItemCount() {
+        Log.d("######", pages.size() + "" );
         return pages.size();
     }
 

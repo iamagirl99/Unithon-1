@@ -68,7 +68,7 @@ public class Model {
       
     public static class Page {
         public Page() {
-            this.image = "diary";
+            this.image = "cover_test";
         }
 
         public String getImage() {

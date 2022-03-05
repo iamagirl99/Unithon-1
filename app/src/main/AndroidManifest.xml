@@ -35,7 +35,8 @@
             android:theme="@style/Theme.Unithon.NoActionBar"/>
         <activity
             android:name=".DiaryDetail.ReadActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/Theme.Unithon.NoActionBar">
         </activity>
 
         <activity
