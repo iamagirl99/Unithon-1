@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import static com.example.unithon.DummyData.diaries;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.unithon.Model;
 import com.example.unithon.R;
@@ -27,8 +28,12 @@ public class MemberActivity extends AppCompatActivity {
         setContentView(R.layout.activity_member);
 
         Intent intent = getIntent();
-        int order = intent.getIntExtra("order", -1);
-        diary = diaries.get(order);
+        int diary_num = intent.getIntExtra("diary_num", -1);
+        if (diary_num == -1) {
+            Log.e("READ ACTIVITY", "Intent error");
+            return;
+        }
+        diary = diaries.get(diary_num);
         owner = diary.getOwner_id();
         userList = diary.getMembers();
 
