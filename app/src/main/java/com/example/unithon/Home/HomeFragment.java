@@ -25,7 +25,6 @@ public class HomeFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
-        init_diaries();
         gridView = rootView.findViewById(R.id.gridView);
         HomeGridAdapter gridAdapter = new HomeGridAdapter(DummyData.diaries);
         gridView.setAdapter(gridAdapter);
@@ -33,10 +32,5 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
-    void init_diaries() {
-        DummyData.diaries = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            DummyData.diaries.add(new Model.Diary());
-        }
-    }
+
 }

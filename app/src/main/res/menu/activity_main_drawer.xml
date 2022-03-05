@@ -2,16 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_home"
-            android:title="Home" />
-        <item
-            android:id="@+id/nav_change_MBTI"
-            android:title="Change my MBTI" />
-        <item
-            android:id="@+id/nav_saved_page"
-            android:title="Saved page" />
-    </group>
+    <item
+        android:id="@+id/nav_change_MBTI"
+        android:title="Change my MBTI" />
+    <item
+        android:id="@+id/nav_saved_page"
+        android:title="My Diary" />
 </menu>

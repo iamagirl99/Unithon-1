@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ReadActivity">
+    tools:context=".DiaryDetail.ReadActivity">
 
 
     <ImageView
         android:id="@+id/imgv_read_left"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -36,8 +37,9 @@
 
     <ImageView
         android:id="@+id/imgv_read_right"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -58,7 +60,7 @@
         app:srcCompat="@drawable/background_cats" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/bookmark_btn"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="5dp"
@@ -67,51 +69,50 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
-        app:srcCompat="@drawable/ic_bookmark" />
+        android:elevation="1dp"
+        android:layout_margin="20dp"
+        app:tint="@color/purple_200"
+        app:srcCompat="@drawable/ic_baseline_bookmark_24" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/gather_diary_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/bookmark_btn"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
-        app:srcCompat="@drawable/ic_menu" />
+        android:layout_margin="20dp"
+        app:tint="@color/purple_200"
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/page_view_pager"
+        android:layout_gravity="center"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:srcCompat="@drawable/cover_test" />
+        app:layout_constraintTop_toBottomOf="@+id/bookmark_btn"
+        android:orientation="horizontal"
+        android:scaleType="fitXY"
+        android:layout_marginBottom="10dp"/>
 
     <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/comment_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_heart" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_chat" />
+        app:srcCompat="@drawable/ic_baseline_mode_comment_24"
+        app:layout_constraintTop_toBottomOf="@+id/bookmark_btn"
+        app:layout_constraintVertical_bias="1.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

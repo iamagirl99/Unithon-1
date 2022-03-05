@@ -17,7 +17,6 @@ public class CommentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("herehererrehrehre " + commentArrayList);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 

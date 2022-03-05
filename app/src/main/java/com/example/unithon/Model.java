@@ -17,6 +17,22 @@ public class Model {
             this.bookmarks = new ArrayList<>();
             Arrays.fill(coverType, false);
             Arrays.fill(templateType, false);
+            this.owner_id = "None";
+            this.members = new ArrayList<>();
+        }
+
+        public Diary(String name, boolean[] coverType, Drawable offeredCover, Uri uploadCover,
+                     ArrayList<String> hashtag, String password, boolean[] templateType,
+                     Drawable offeredTemplate, Uri uploadTemplate) {
+            this.name = name;
+            this.coverType = coverType;
+            this.offeredCover = offeredCover;
+            this.uploadCover = uploadCover;
+            this.hashtag = hashtag;
+            this.password = password;
+            this.templateType = templateType;
+            this.offeredTemplate = offeredTemplate;
+            this.uploadTemplate = uploadTemplate;
         }
 
         String name;
@@ -110,6 +126,8 @@ public class Model {
         public void setUploadTemplate(Uri uploadTemplate) {
             this.uploadTemplate = uploadTemplate;
         }
+        String owner_id;
+        ArrayList<User> members;
 
         public String getName() {
             return name;
@@ -121,6 +139,14 @@ public class Model {
 
         public ArrayList<Integer> getBookmarks() {
             return bookmarks;
+        }
+
+        public ArrayList<User> getMembers() {
+            return members;
+        }
+
+        public String getOwner_id(){
+            return owner_id;
         }
     }
   
@@ -162,9 +188,53 @@ public class Model {
       
     public static class Page {
         public Page() {
-            this.image = "diary";
+            this.image = "cover_test";
+        }
+
+        public String getImage() {
+            return image;
         }
         String image;
-
     }
+
+    public static class User {
+        public User() {
+            this.mbti = MBTI.ESTJ;
+            this.id = "None";
+            this.bookmarks = new ArrayList<Bookmark>();
+        }
+        MBTI mbti;
+        String id;
+        ArrayList<Bookmark> bookmarks;
+
+        public String getMbti(){
+            return mbti.name();
+        }
+
+        public String getId(){
+            return id;
+        }
+
+        public ArrayList<Bookmark> getBookmarks() { return bookmarks;}
+
+        public void setBookmarks(ArrayList<Bookmark> bookmarks){
+            this.bookmarks = bookmarks;
+        }
+    }
+
+    enum MBTI {
+        ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
+        INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
+    }
+
+    public class Bookmark{
+        int diary_num;
+        int page_num;
+        public Bookmark(int diary_num, int page_num){
+            this.diary_num = diary_num;
+            this.page_num = page_num;
+        }
+    }
+
+
 }
