@@ -9,7 +9,7 @@ public class Model {
             this.pages = new ArrayList<>();
             this.bookmarks = new ArrayList<>();
             this.owner_id = "None";
-            this.members = new ArrayList<>()
+            this.members = new ArrayList<>();
         }
         String name;
         ArrayList<Page> pages;
@@ -69,6 +69,10 @@ public class Model {
     public static class Page {
         public Page() {
             this.image = "diary";
+        }
+
+        public String getImage() {
+            return image;
         }
         String image;
     }

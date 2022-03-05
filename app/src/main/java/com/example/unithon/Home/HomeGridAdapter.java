@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.unithon.Model;
 import com.example.unithon.R;
-import com.example.unithon.ReadActivity;
+import com.example.unithon.DiaryDetail.ReadActivity;
 
 import java.util.ArrayList;
 

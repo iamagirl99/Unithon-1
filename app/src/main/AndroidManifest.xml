@@ -34,13 +34,8 @@
             android:exported="true"
             android:theme="@style/Theme.Unithon.NoActionBar"/>
         <activity
-            android:name=".ReadActivity"
+            android:name=".DiaryDetail.ReadActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -52,7 +47,13 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Unithon.NoActionBar"/>
+            android:theme="@style/Theme.Unithon.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity"/>
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorStickerActivity"/>
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorTextActivity"
