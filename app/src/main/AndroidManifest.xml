@@ -15,14 +15,29 @@
             android:theme="@style/Theme.Unithon.NoActionBar"/>
         <activity
             android:name=".Comment.CommentActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Unithon.NoActionBar"/>
+            android:exported="true"
+            android:theme="@style/Theme.Unithon.NoActionBar">
+
+
+        </activity>
         <activity
             android:name=".ReadActivity"
             android:exported="false" />
 
         <activity
             android:name=".DiaryActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Unithon.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Unithon.NoActionBar"/>
+
+        <activity
+            android:name=".GatherDiaryActivity"
             android:exported="true"
             android:theme="@style/Theme.Unithon.NoActionBar">
             <intent-filter>
@@ -31,12 +46,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Unithon.NoActionBar"/>
-
     </application>
 
 </manifest>
