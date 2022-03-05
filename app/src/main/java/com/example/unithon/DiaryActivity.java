@@ -53,8 +53,10 @@ public class DiaryActivity extends AppCompatActivity {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        System.out.println("d5 ---> " + currentUser);
-                        Intent intent = new Intent(context, WriteDiaryActivity.class);
+//                        Intent intent = new Intent(context, WriteDiaryActivity.class);
+//                        context.startActivity(intent);
+                        Intent intent = new Intent(context, ReadActivity.class);
+                        intent.putExtra("diary_num", diary_num);
                         context.startActivity(intent);
                     }
                 });
@@ -68,7 +70,6 @@ public class DiaryActivity extends AppCompatActivity {
                         System.out.println("d7 ---> " + currentUser);
                         Intent intent = new Intent(context, ReadActivity.class);
                         intent.putExtra("diary_num", diary_num);
-                        intent.putExtra("my_diary", is_mine);
                         context.startActivity(intent);
                     }
                 });
