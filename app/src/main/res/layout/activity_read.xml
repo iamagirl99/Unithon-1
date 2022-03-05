@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ReadActivity">
+    tools:context=".DiaryDetail.ReadActivity">
 
 
     <ImageView
@@ -67,7 +67,8 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
-        app:srcCompat="@drawable/ic_bookmark" />
+        android:elevation="1dp"
+        app:srcCompat="@drawable/ic_baseline_bookmark_24" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -79,18 +80,17 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
-        app:srcCompat="@drawable/ic_menu" />
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:srcCompat="@drawable/cover_test" />
+        android:orientation="horizontal"
+        />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -101,7 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_heart" />
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -112,6 +112,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_chat" />
+        app:srcCompat="@drawable/ic_baseline_mode_comment_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

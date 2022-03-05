@@ -9,11 +9,15 @@ public class Model {
             this.pages = new ArrayList<>();
             this.bookmarks = new ArrayList<>();
             this.tags = "#졸려";
+            this.owner_id = "None";
+            this.members = new ArrayList<>();
         }
         String name, tags;
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
 //        ArrayList<String> tags;
+        String owner_id;
+        ArrayList<User> members;
 
         public String getName() {
             return name;
@@ -72,7 +76,24 @@ public class Model {
         public Page() {
             this.image = "diary";
         }
-        String image;
 
+        public String getImage() {
+            return image;
+        }
+        String image;
+    }
+
+    public static class User {
+        public User() {
+            this.mbti = MBTI.ESTJ;
+            this.id = "None";
+        }
+        MBTI mbti;
+        String id;
+    }
+
+    enum MBTI {
+        ESTJ,
+        INFP,
     }
 }

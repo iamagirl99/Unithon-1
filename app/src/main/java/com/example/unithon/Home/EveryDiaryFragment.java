@@ -20,12 +20,14 @@ import java.util.ArrayList;
 public class EveryDiaryFragment extends Fragment {
     EveryDiaryAdapter diaryAdapter;
     RecyclerView rcvDiaries;
-    ArrayList<Model.Diary> diaryArrayList = DummyData.diaries;
+    ArrayList<Model.Diary> diaryArrayList;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        DummyData dummyData = new DummyData();
+        diaryArrayList = DummyData.diaries;
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_others, container, false);
 
         System.out.println("here " + diaryArrayList);
