@@ -8,8 +8,10 @@
     tools:context=".Comment.CommentActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/comment_rcv"
         android:layout_width="409dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:background="@drawable/background_cats"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +25,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@id/comment_rcv"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton5"
         app:layout_constraintStart_toStartOf="parent" />
