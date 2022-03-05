@@ -70,13 +70,15 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_pick"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_width="401dp"
+        android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/purple_round"
         android:backgroundTint="#BD69FF"
-        android:fontFamily="@font/streetwear"
+        android:fontFamily="@font/Streetwear"
         android:text="Add Picture"
+        android:textAllCaps="false"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
