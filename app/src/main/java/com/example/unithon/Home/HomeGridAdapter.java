@@ -56,6 +56,7 @@ public class HomeGridAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, DiaryActivity.class);
                 intent.putExtra("diary_num", i);
+                intent.putExtra("my_diary", true);
                 context.startActivity(intent);
             }
         });

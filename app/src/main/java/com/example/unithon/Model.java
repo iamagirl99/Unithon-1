@@ -19,6 +19,9 @@ public class Model {
             Arrays.fill(templateType, false);
             this.owner_id = "None";
             this.members = new ArrayList<>();
+            this.hashtag = new ArrayList<>();
+            this.password = "";
+            turnId = "Me";
         }
 
         public Diary(String name, boolean[] coverType, Drawable offeredCover, Uri uploadCover,
@@ -35,6 +38,10 @@ public class Model {
             this.uploadTemplate = uploadTemplate;
         }
 
+        public String getTurnId() {
+            return turnId;
+        }
+
         String name;
         ArrayList<String> hashtag;
         ArrayList<Page> pages;
@@ -46,6 +53,7 @@ public class Model {
         boolean[] templateType = new boolean[SIZE + 1];
         Drawable offeredTemplate;
         Uri uploadTemplate;
+        String turnId;
 
         public static int getSIZE() {
             return SIZE;
@@ -220,7 +228,7 @@ public class Model {
     public static class User {
         public User() {
             this.mbti = MBTI.ESTJ;
-            this.id = "None";
+            this.id = "Me";
             this.pages = new ArrayList<>();
             this.diaries = new ArrayList<>();
         }
