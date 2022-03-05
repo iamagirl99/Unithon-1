@@ -23,14 +23,10 @@ public class Model {
             this.pages = new ArrayList<>();
             this.owner_id = owner_id;
             this.members = new ArrayList<>();
-            this.hashtag = new ArrayList<>();
             this.password = "";
             this.turnId = turnId;
         }
 
-        public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
-                     ArrayList<String> hashtag, String password, boolean isofferedTemplate,
-                     Drawable offeredTemplate, Uri uploadTemplate) {
         public Diary(String name, String cover, String hashtag, String password) {
             this.name = name;
             this.hashtag = hashtag;
@@ -151,15 +147,11 @@ public class Model {
         Diary diary;
         ArrayList<Integer> bookmarks;
 
-        public CustomDiary(Diary diary) {
-            this.diary = diary;
-            bookmarks = new ArrayList<>();
-        }
-
         public CustomDiary() {
             diary = new Diary();
             bookmarks = new ArrayList<>();
         }
+
         public CustomDiary(Diary diary) {
             this.diary = diary;
             bookmarks = new ArrayList<>();
