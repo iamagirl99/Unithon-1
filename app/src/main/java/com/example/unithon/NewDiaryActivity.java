@@ -1,5 +1,8 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
+import static com.example.unithon.DummyData.diaries;
+
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -58,7 +61,6 @@ public class NewDiaryActivity extends AppCompatActivity {
 
     private Bitmap photo;
     private String name;
-    private String condition;
     private String password;
     private String image;
 
@@ -74,12 +76,11 @@ public class NewDiaryActivity extends AppCompatActivity {
         coverAdapter.submitList(coverSrcList);
 
 
-
         paperStyleAdapter.submitList(paperStyleSrcList);
 
         addCover.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 id_view = R.id.addCover;
                 PermissionListener permissionlistener = new PermissionListener() {
                     @Override
@@ -126,26 +127,27 @@ public class NewDiaryActivity extends AppCompatActivity {
         });
 
         makeDiary.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                condition = conditionOfMember.getText().toString();
-                ArrayList<String> hashtag = (ArrayList<String>) Arrays.asList(condition.split(" "));
                 name = decideDiaryName.getText().toString();
                 password = diaryPassword.getText().toString();
-                if(absolutePath_cover.length() != 0){
+                if (absolutePath_cover.length() != 0) {
                     Bitmap bitmap = BitmapFactory.decodeFile(absolutePath_cover);
                     image = BitmapToString(bitmap);
                 }
+                String hashtag = conditionOfMember.getText().toString();
+                Model.Diary diary = new Model.Diary(name, image, hashtag, password);
+                diaries.add(diary);
+                currentUser.getDiaries().add(new Model.CustomDiary(diary));
 
-                //TODO : name, password, image 다 스트링으로 바꿔놔서 이거 저장만 하면됨.
             }
-
-
-       });
+        });
 
 
 
     }
+
     public void doTakeAlbumAction() {
 
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -203,56 +205,6 @@ public class NewDiaryActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onClick(@NonNull View view) {
-//        id_view = view.getId();
-//
-//        if(id_view == R.id.addCover){
-//
-//            PermissionListener permissionlistener = new PermissionListener() {
-//                @Override
-//                public void onPermissionGranted() {
-//                    DialogInterface.OnClickListener albumListener = new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            doTakeAlbumAction();
-//                        }
-//                    };
-//
-//                    DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            dialog.dismiss();
-//                        }
-//                    };
-//
-//                    new AlertDialog.Builder(NewDiaryActivity.this)
-//                            .setTitle("업로드 할 이미지 선택")
-//                            .setPositiveButton("앨범선택", albumListener)
-//                            .setNegativeButton("취소", cancelListener)
-//                            .show();
-//                }
-//
-//                @Override
-//                public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-//                    Toast.makeText(NewDiaryActivity.this, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-//
-//                }
-//
-//            };
-//
-//            TedPermission.with(getApplicationContext())
-//                    .setPermissionListener(permissionlistener)
-//                    .setRationaleMessage("내부 저장소 및 카메라 권한이 필요합니다. ")
-//                    .setDeniedMessage("[설정] > [권한] 에서 권한을 허용할 수 있습니다.")
-//                    .setPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-//                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                            Manifest.permission.CAMERA})
-//                    .check();
-//
-//        }
-//    }
-
     private void storeCropImage(Bitmap bitmap, String filePath) {
 
         try {
@@ -301,62 +253,4 @@ public class NewDiaryActivity extends AppCompatActivity {
         String temp = Base64.encodeToString(bytes, Base64.DEFAULT);
         return temp;
     }
-
-//    private void tedPermission() {
-//        PermissionListener permissionListener = new PermissionListener() {
-//            @Override
-//            public void onPermissionGranted() {
-//
-//            }
-//
-//            @Override
-//            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-//
-//            }
-//        };
-//
-//        TedPermission.with(this)
-//                .setPermissionListener(permissionListener)
-//                .setRationaleMessage(getResources().getString(R.string.permission_2))
-//                .setDeniedMessage(getResources().getString(R.string.permission_1))
-//                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-//                .check();
-//    }
-
-//    private void goToAlbum() {
-//        Intent intent = new Intent(Intent.ACTION_PICK);
-//        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-//        startActivityForResult(intent, PICK_FROM_ALBUM);
-//    }
-//
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == PICK_FROM_ALBUM) {
-//
-//            Uri photoUri = data.getData();
-//
-//            Cursor cursor = null;
-//
-//            try {
-//
-//                /*
-//                 *  Uri 스키마를
-//                 *  content:/// 에서 file:/// 로  변경한다.
-//                 */
-//                String[] proj = {MediaStore.Images.Media.DATA};
-//
-//                assert photoUri != null;
-//                cursor = getContentResolver().query(photoUri, proj, null, null, null);
-//
-//                assert cursor != null;
-//                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//
-//                cursor.moveToFirst();
-//
-//            } finally {
-//                if (cursor != null) {
-//                    cursor.close();
-//                }
-//            }
-//        }
-//    }
 }

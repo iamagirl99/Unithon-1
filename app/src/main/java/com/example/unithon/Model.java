@@ -14,17 +14,16 @@ public class Model {
             this.bookmarks = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
-            this.hashtag = new ArrayList<>();
+            this.hashtag = "";
             this.password = "";
             turnId = "Me";
         }
 
-        public Diary(String name, Bitmap cover, ArrayList<String> hashtag, String password, Bitmap template) {
+        public Diary(String name, String cover, String hashtag, String password) {
             this.name = name;
             this.hashtag = hashtag;
             this.password = password;
             this.cover = cover;
-            this.template = template;
         }
 
         public String getTurnId() {
@@ -32,23 +31,22 @@ public class Model {
         }
 
         String name;
-        ArrayList<String> hashtag;
+        String hashtag;
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
         String password;
-        Bitmap cover;
-        Bitmap template;
+        String cover;
         String turnId;
 
         public void setName(String name) {
             this.name = name;
         }
 
-        public ArrayList<String> getHashtag() {
+        public String getHashtag() {
             return hashtag;
         }
 
-        public void setHashtag(ArrayList<String> hashtag) {
+        public void setHashtag(String hashtag) {
             this.hashtag = hashtag;
         }
 
