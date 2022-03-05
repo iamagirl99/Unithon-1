@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class DummyData {
     public static ArrayList<Model.Diary> diaries;
-    public static ArrayList<Integer> coverUrlList;
+    public static ArrayList<Integer> coverSrcList  = new ArrayList<Integer>() {
+        {
+            add(new Integer(R.drawable.cover_test));
+        }
+    };
 
 }
