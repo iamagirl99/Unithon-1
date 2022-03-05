@@ -33,6 +33,14 @@ public class Model {
         public String getTags() {
             return tags;
         }
+
+        public ArrayList<User> getMembers() {
+            return members;
+        }
+
+        public String getOwner_id(){
+            return owner_id;
+        }
     }
   
     public static class Comment {
@@ -89,10 +97,21 @@ public class Model {
         }
         MBTI mbti;
         String id;
+
+        public String getMbti(){
+            return mbti.name();
+        }
+
+        public String getId(){
+            return id;
+        }
     }
 
     enum MBTI {
         ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
         INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, 햣 ISTJ
     }
+
+
+
 }
