@@ -13,10 +13,11 @@ import java.util.ArrayList;
 public class CommentActivity extends AppCompatActivity {
     CommentAdapter commentAdapter;
     RecyclerView rcvComment;
-    ArrayList<Model.Comment> commentArrayList;
+    ArrayList<Model.Comment> commentArrayList = DummyComment.dummyCommentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("herehererrehrehre " + commentArrayList);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
 

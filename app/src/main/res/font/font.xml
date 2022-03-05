@@ -6,4 +6,13 @@
     <font android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/chosunilbo"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/streetwear"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/kitsch_extrabold"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/kitsch_text_extralight"/>
 </font-family>
