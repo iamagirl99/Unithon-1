@@ -11,6 +11,7 @@
     <color name="background">#EBCFFC</color>
     <color name="status_bar">#EEEBCFFC</color>
     <color name="transparent">#00000000</color>
+    <color name="upload_color">#FAF1FF</color>
     <color name="red">#FFFF0000</color>
     <color name="gray">#FFF3F3f3</color>
 </resources>
