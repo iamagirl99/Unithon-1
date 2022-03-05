@@ -9,12 +9,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.unithon.DiaryDetail.ReadActivity;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
@@ -46,13 +49,6 @@ public class NewDiaryActivity extends AppCompatActivity {
     private PaperStyleAdapter paperStyleAdapter = new PaperStyleAdapter();
     private ArrayList<Integer> paperStyleSrcList = DummyData.paperStyleSrcList;
 
-    private EditText conditionOfMember = findViewById(R.id.conditionOfMember);
-    private EditText decideDiaryName = findViewById(R.id.decideDiaryName);
-    private EditText diaryPassword = findViewById(R.id.diaryPassword);
-    private Button makeDiary = findViewById(R.id.makeDiary);
-    private ImageView addCover = findViewById(R.id.addCover);
-
-
     private int id_view;
     private Uri mImageCaptureUri;
     private static final int PICK_FROM_ALBUM = 1;
@@ -64,6 +60,12 @@ public class NewDiaryActivity extends AppCompatActivity {
     private String password;
     private String image;
 
+    EditText conditionOfMember;
+    EditText decideDiaryName;
+    EditText diaryPassword;
+    Button makeDiary;
+    ImageView addCover;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,12 +73,33 @@ public class NewDiaryActivity extends AppCompatActivity {
 
         setContentView(R.layout.new_diary);
 
+        conditionOfMember = findViewById(R.id.conditionOfMember);
+        decideDiaryName = findViewById(R.id.decideDiaryName);
+        diaryPassword = findViewById(R.id.diaryPassword);
+        makeDiary = findViewById(R.id.makeDiary);
+        addCover = findViewById(R.id.addCover);
         RecyclerView coverList = findViewById(R.id.coverList);
         coverList.setAdapter(coverAdapter);
         coverAdapter.submitList(coverSrcList);
 
 
         paperStyleAdapter.submitList(paperStyleSrcList);
+
+
+        addCover.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                ImageView image = (ImageView) view;
+
+                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    image.setColorFilter(0xaa111111, PorterDuff.Mode.SRC_OVER);
+                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    image.setColorFilter(0x00000000, PorterDuff.Mode.SRC_OVER);
+                }
+
+                return true;
+            }
+        });
 
         addCover.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,10 +160,15 @@ public class NewDiaryActivity extends AppCompatActivity {
                     image = BitmapToString(bitmap);
                 }
                 String hashtag = conditionOfMember.getText().toString();
+
                 Model.Diary diary = new Model.Diary(name, image, hashtag, password);
                 diaries.add(diary);
                 currentUser.getDiaries().add(new Model.CustomDiary(diary));
 
+                Intent intent = new Intent(getApplicationContext(), DiaryActivity.class);
+                intent.putExtra("diary_num", currentUser.getDiaries().size() - 1);
+                intent.putExtra("my_diary", true);
+                startActivity(intent);
             }
         });
 
