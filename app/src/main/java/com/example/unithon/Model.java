@@ -14,17 +14,16 @@ public class Model {
             this.bookmarks = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
-            this.hashtag = new ArrayList<>();
+            this.hashtag = "";
             this.password = "";
             turnId = "Me";
         }
 
-        public Diary(String name, Bitmap cover, String hashtag, String password, Bitmap template) {
+        public Diary(String name, String cover, String hashtag, String password) {
             this.name = name;
             this.hashtag = hashtag;
             this.password = password;
             this.cover = cover;
-            this.template = template;
         }
 
         public String getTurnId() {
@@ -36,8 +35,7 @@ public class Model {
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
         String password;
-        Bitmap cover;
-        Bitmap template;
+        String cover;
         String turnId;
 
         public void setName(String name) {
@@ -165,7 +163,7 @@ public class Model {
 
     public static class User {
         public User() {
-            this.mbti = MBTI.ESTJ;
+            this.mbti = MBTI.INTJ;
             this.id = "Me";
             this.pages = new ArrayList<>();
             this.diaries = new ArrayList<>();
@@ -177,6 +175,10 @@ public class Model {
 
         public String getMbti(){
             return mbti.name();
+        }
+
+        public void setMbti(MBTI mbti) {
+            this.mbti = mbti;
         }
 
         public String getId(){
@@ -194,7 +196,7 @@ public class Model {
         }
     }
 
-    enum MBTI {
+    public enum MBTI {
         ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
         INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
     }
