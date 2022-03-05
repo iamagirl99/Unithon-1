@@ -148,7 +148,7 @@ public class NewDiaryActivity extends AppCompatActivity {
                 }
                 String hashtag = conditionOfMember.getText().toString();
 
-                Model.Diary diary = new Model.Diary(name, image, hashtag, password);
+                Model.Diary diary = new Model.Diary(name, "Me", image, hashtag, password);
                 diaries.add(diary);
                 currentUser.getDiaries().add(new Model.CustomDiary(diary));
 

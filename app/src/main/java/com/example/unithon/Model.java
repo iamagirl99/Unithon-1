@@ -19,20 +19,21 @@ public class Model {
             members.add(new User(MBTI.INFJ, "Me"));
         }
 
-        public Diary(String name, String owner_id, String turnId) {
+        public Diary(String name, String owner_id, String turnId, String hashtag) {
             this.name = name;
             this.pages = new ArrayList<>();
             this.owner_id = owner_id;
             this.members = new ArrayList<>();
             this.password = "";
             this.turnId = turnId;
-            hashtag = "#심심해 #졸려";
+            this.hashtag = hashtag;
             members.add(new User(MBTI.INFJ, owner_id));
         }
 
-        public Diary(String name, String cover, String hashtag, String password) {
+        public Diary(String name, String owner_id, String cover, String hashtag, String password) {
             this.name = name;
             this.hashtag = hashtag;
+            this.owner_id = owner_id;
             this.password = password;
             this.cover = cover;
             this.members = new ArrayList<>();

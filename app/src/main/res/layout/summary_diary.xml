@@ -7,10 +7,12 @@
     <TextView
         android:id="@+id/diary_name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_gravity="center"
+        android:textStyle="bold"
         android:gravity="center"
         android:padding="10dp"
+        android:fontFamily="@font/chosunilbo"
         android:text="사공주 이야기"/>
     <ImageView
         android:layout_width="wrap_content"
