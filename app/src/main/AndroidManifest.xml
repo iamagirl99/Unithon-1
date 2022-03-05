@@ -22,12 +22,6 @@
             android:name=".WriteDiaryActivity"
             android:exported="true"
             android:theme="@style/Theme.Unithon.NoActionBar" />
-<!--        <intent-filter>-->
-<!--            <action android:name="android.intent.action.MAIN" />-->
-
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
-<!--        </activity>-->
 
         <activity
             android:name=".Comment.CommentActivity"
@@ -61,12 +55,19 @@
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorCropActivity"/>
         <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorDrawActivity"/>
 
+        <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity"/>
+        <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorStickerActivity"/>
+        <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorTextActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorCropActivity"/>
+        <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorDrawActivity"/>
+
         <activity
             android:name=".GatherDiaryActivity"
             android:exported="true"
             android:theme="@style/Theme.Unithon.NoActionBar">
-
         </activity>
+
     </application>
 
 </manifest>
