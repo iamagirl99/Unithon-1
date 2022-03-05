@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CoverAdapter extends RecyclerView.Adapter<CoverAdapter.ViewHolder> {
+class CoverListAdapter extends RecyclerView.Adapter<CoverListAdapter.ViewHolder> {
     private ArrayList<Integer> coverSrcList;
 
     public void submitList(ArrayList<Integer> coverSrcList) {
