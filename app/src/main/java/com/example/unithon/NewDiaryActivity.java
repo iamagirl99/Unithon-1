@@ -5,10 +5,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -45,14 +48,20 @@ public class NewDiaryActivity extends AppCompatActivity {
     private EditText diaryPassword = findViewById(R.id.diaryPassword);
     private Button makeDiary = findViewById(R.id.makeDiary);
     private ImageView addCover = findViewById(R.id.addCover);
-    private ImageView addTemplate = findViewById(R.id.addTemplate);
+
 
     private int id_view;
     private Uri mImageCaptureUri;
     private static final int PICK_FROM_ALBUM = 1;
     private static final int CROP_FROM_IMAGE = 2;
-    private String absolutePath = "";
+    private String absolutePath_cover = "";
+
     private Bitmap photo;
+    private String name;
+    private String condition;
+    private String password;
+    private String image;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +73,14 @@ public class NewDiaryActivity extends AppCompatActivity {
         coverList.setAdapter(coverAdapter);
         coverAdapter.submitList(coverSrcList);
 
-        RecyclerView paperStyleList = findViewById(R.id.paperStyleList);
-        paperStyleList.setAdapter(paperStyleAdapter);
+
+
         paperStyleAdapter.submitList(paperStyleSrcList);
 
         addCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+                id_view = R.id.addCover;
                 PermissionListener permissionlistener = new PermissionListener() {
                     @Override
                     public void onPermissionGranted() {
@@ -116,66 +126,23 @@ public class NewDiaryActivity extends AppCompatActivity {
         });
 
         makeDiary.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                String condition = conditionOfMember.getText().toString();
+                condition = conditionOfMember.getText().toString();
                 ArrayList<String> hashtag = (ArrayList<String>) Arrays.asList(condition.split(" "));
+                name = decideDiaryName.getText().toString();
+                password = diaryPassword.getText().toString();
+                if(absolutePath_cover.length() != 0){
+                    Bitmap bitmap = BitmapFactory.decodeFile(absolutePath_cover);
+                    image = BitmapToString(bitmap);
+                }
 
-                String name = decideDiaryName.getText().toString();
-
-                String password = diaryPassword.getText().toString();
-
-
-            }
-        });
-
-        addTemplate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PermissionListener permissionlistener = new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted() {
-                        DialogInterface.OnClickListener albumListener = new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                doTakeAlbumAction();
-                            }
-                        };
-
-                        DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        };
-
-                        new AlertDialog.Builder(NewDiaryActivity.this)
-                                .setTitle("업로드 할 이미지 선택")
-                                .setPositiveButton("앨범선택", albumListener)
-                                .setNegativeButton("취소", cancelListener)
-                                .show();
-                    }
-
-                    @Override
-                    public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                        Toast.makeText(NewDiaryActivity.this, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-
-                    }
-
-                };
-
-                TedPermission.with(getApplicationContext())
-                        .setPermissionListener(permissionlistener)
-                        .setRationaleMessage("내부 저장소 및 카메라 권한이 필요합니다. ")
-                        .setDeniedMessage("[설정] > [권한] 에서 권한을 허용할 수 있습니다.")
-                        .setPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                Manifest.permission.CAMERA})
-                        .check();
+                //TODO : name, password, image 다 스트링으로 바꿔놔서 이거 저장만 하면됨.
 
             }
-        });
+       });
+
+
 
     }
     public void doTakeAlbumAction() {
@@ -220,8 +187,9 @@ public class NewDiaryActivity extends AppCompatActivity {
                 if (extras != null) {
                     photo = extras.getParcelable("data"); // CROP된 BITMAP
                     addCover.setImageBitmap(photo); // 레이아웃의 이미지칸에 CROP된 BITMAP을 보여줌
+
                     storeCropImage(photo, filePath); // CROP된 이미지를 외부저장소, 앨범에 저장한다.
-                    absolutePath = filePath;
+                    absolutePath_cover = filePath;
                     break;
                 }
 
@@ -309,6 +277,28 @@ public class NewDiaryActivity extends AppCompatActivity {
             e.printStackTrace();
             Log.e("path error", e.getMessage());
         }
+    }
+
+    public static Bitmap StringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
+    /*
+     * Bitmap을 String형으로 변환
+     * */
+    public static String BitmapToString(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 70, baos);
+        byte[] bytes = baos.toByteArray();
+        String temp = Base64.encodeToString(bytes, Base64.DEFAULT);
+        return temp;
     }
 
 //    private void tedPermission() {
