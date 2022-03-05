@@ -4,6 +4,8 @@ import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,13 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.unithon.Model;
 import com.example.unithon.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.ViewHolder> {
+public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.ViewHolder> implements Filterable {
     private List<Model.Diary> diaryList;
+    private List<Model.Diary> filteredDiaryList;
 
     public void submitList(List<Model.Diary> diaryList) {
         this.diaryList = diaryList;
+        this.filteredDiaryList = diaryList;
         notifyDataSetChanged();
     }
 
@@ -54,5 +59,38 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
 
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.onBind(diaryList.get(position));
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString();
+                if (charString.isEmpty()) {
+                    filteredDiaryList = diaryList;
+                } else {
+                    ArrayList<Model.Diary> filteringList = new ArrayList<>();
+                    for (Model.Diary data : diaryList) {
+                        if (data.getName().contains(charString)) {
+                            filteringList.add(data);
+                        }
+                    }
+                    filteredDiaryList = filteringList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredDiaryList;
+
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filteredDiaryList = (ArrayList<Model.Diary>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }
