@@ -33,7 +33,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:fontFamily="@font/Streetwear"
+            android:fontFamily="@font/streetwear"
             android:gravity="center"
             android:text="Bamboo Diary"
             android:textColor="#422378"

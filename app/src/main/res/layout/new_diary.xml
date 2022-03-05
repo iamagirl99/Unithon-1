@@ -207,7 +207,7 @@
                 android:backgroundTint="@color/button_color1"
                 android:elevation="10dp"
                 android:textAllCaps="false"
-                android:fontFamily="@font/Streetwear"
+                android:fontFamily="@font/streetwear"
                 android:text="Complete !" />
 
         </LinearLayout>
