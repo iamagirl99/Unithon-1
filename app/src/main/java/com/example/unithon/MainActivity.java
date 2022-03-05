@@ -18,9 +18,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.unithon.Home.CustomDialog;
 import com.example.unithon.Home.EveryDiaryFragment;
 import com.example.unithon.Home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView imageView;
     private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -85,23 +88,27 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setText("My Diary");
         tabLayout.getTabAt(1).setText("All Diary");
 
-        Button changeBtn, myDiaryBtn;
-        changeBtn = findViewById(R.id.changeBtn);
-        myDiaryBtn = findViewById(R.id.myDiaryBtn);
+        navigationView = findViewById(R.id.navigation);
+        navigationView.setClickable(true);
 
-//        changeBtn.setOnClickListener(new View.OnClickListener() {
+        Button changeBtn, myDiaryBtn;
+//        navigationView.getMenu().findItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
-//            public void onClick(View view) {
-//
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                CustomDialog customDialog = new CustomDialog(getApplicationContext());
+//                customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+//                customDialog.show();
+//                return true;
 //            }
 //        });
 //
-//        myDiaryBtn.setOnClickListener(new View.OnClickListener() {
+//        navigationView.getMenu().findItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
-//            public void onClick(View view) {
-//
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                return false;
 //            }
 //        });
+
 
     }
 
