@@ -86,6 +86,9 @@ package="com.example.unithon">
         android:exported="true"
         android:theme="@style/Theme.Unithon.NoActionBar">
     </activity>
+    <activity android:name=".BookmarkedPagesActivity">
+
+    </activity>
 </application>
 
 </manifest>

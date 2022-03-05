@@ -3,6 +3,7 @@ package com.example.unithon.Comment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.unithon.Model;
@@ -19,6 +20,10 @@ public class CommentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
+
+        Intent intent = getIntent();
+        int diary_num = intent.getIntExtra("diary_num", -1);
+        int page_num = intent.getIntExtra("page_num", -1);
 
         rcvComment = findViewById(R.id.comment_rcv);
         commentAdapter = new CommentAdapter();

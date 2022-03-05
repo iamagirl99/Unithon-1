@@ -10,12 +10,21 @@ public class Model {
         public Diary() {
             this.name = "테스트 다이어리";
             this.pages = new ArrayList<>();
-            this.bookmarks = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
             this.hashtag = new ArrayList<>();
             this.password = "";
             turnId = "Me";
+        }
+
+        public Diary(String name, String owner_id, String turnId) {
+            this.name = name;
+            this.pages = new ArrayList<>();
+            this.owner_id = owner_id;
+            this.members = new ArrayList<>();
+            this.hashtag = new ArrayList<>();
+            this.password = "";
+            this.turnId = turnId;
         }
 
         public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
@@ -39,7 +48,6 @@ public class Model {
         String name;
         ArrayList<String> hashtag;
         ArrayList<Page> pages;
-        ArrayList<Integer> bookmarks;
         String password;
         boolean isofferedCover;
         Drawable offeredCover;
@@ -63,10 +71,6 @@ public class Model {
 
         public void setPages(ArrayList<Page> pages) {
             this.pages = pages;
-        }
-
-        public void setBookmarks(ArrayList<Integer> bookmarks) {
-            this.bookmarks = bookmarks;
         }
 
         public String getPassword() {
@@ -117,10 +121,6 @@ public class Model {
 
         public ArrayList<Page> getPages() {
             return pages;
-        }
-
-        public ArrayList<Integer> getBookmarks() {
-            return bookmarks;
         }
 
         public ArrayList<User> getMembers() {
@@ -174,6 +174,11 @@ public class Model {
             this.comments = new ArrayList<>();
         }
 
+        public Page(String image) {
+            this.image = image;
+            this.comments = new ArrayList<>();
+        }
+
         public String getImage() {
             return image;
         }
@@ -183,7 +188,12 @@ public class Model {
 
     public static class CustomDiary {
         Diary diary;
-        ArrayList<PageInfo> bookmarks;
+        ArrayList<Integer> bookmarks;
+
+        public CustomDiary(Diary diary) {
+            this.diary = diary;
+            bookmarks = new ArrayList<>();
+        }
 
         public CustomDiary() {
             diary = new Diary();
@@ -194,7 +204,7 @@ public class Model {
             return diary;
         }
 
-        public ArrayList<PageInfo> getBookmarks() {
+        public ArrayList<Integer> getBookmarks() {
             return bookmarks;
         }
     }
@@ -203,6 +213,12 @@ public class Model {
         public User() {
             this.mbti = MBTI.ESTJ;
             this.id = "Me";
+            this.pages = new ArrayList<>();
+            this.diaries = new ArrayList<>();
+        }
+        public User(MBTI mbti, String id) {
+            this.mbti = mbti;
+            this.id = id;
             this.pages = new ArrayList<>();
             this.diaries = new ArrayList<>();
         }
@@ -225,6 +241,10 @@ public class Model {
             return diaries;
         }
 
+        public void addDiary(CustomDiary customDiary) {
+            diaries.add(customDiary);
+        }
+
         public void setBookmarks(ArrayList<PageInfo> my_diary){
             this.pages = my_diary;
         }
@@ -241,6 +261,14 @@ public class Model {
         public PageInfo(int diary_num, int page_num){
             this.diary_num = diary_num;
             this.page_num = page_num;
+        }
+
+        public int getDiary_num() {
+            return diary_num;
+        }
+
+        public int getPage_num() {
+            return page_num;
         }
     }
 

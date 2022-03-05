@@ -1,5 +1,7 @@
 package com.example.unithon.DiaryDetail;
 
+import static com.example.unithon.DummyData.currentUser;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -12,9 +14,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.unithon.BookmarkedPagesActivity;
 import com.example.unithon.Comment.CommentActivity;
 import com.example.unithon.DummyData;
 import com.example.unithon.GatherDiaryActivity;
+import com.example.unithon.Model;
 import com.example.unithon.R;
 
 public class ReadActivity extends AppCompatActivity {
@@ -34,7 +38,6 @@ public class ReadActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int diary_num = intent.getIntExtra("diary_num", -1);
-
 
         if (diary_num == -1) {
             Log.e("READ ACTIVITY", "Intent error");
@@ -62,17 +65,17 @@ public class ReadActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO : 넘겨준 책 번호와 북마크한 페이지 번호 더미데이터에 추가.
-
+                Intent intent = new Intent(getApplicationContext(), BookmarkedPagesActivity.class);
+                intent.putExtra("diary_num", diary_num);
+                startActivity(intent);
             }
         });
 
         gather_diary_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO : 어떤 다이어리인지 인덱스 번호 인텐트에 담아서 보내기.
                 Intent intent = new Intent(getApplicationContext(), GatherDiaryActivity.class);
                 intent.putExtra("diary_num", diary_num);
-                intent.putExtra("page_num", viewPager2.getCurrentItem());
                 startActivity(intent);
             }
         });

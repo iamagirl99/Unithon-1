@@ -28,6 +28,10 @@ public class HomeGridAdapter extends BaseAdapter {
         return diaries.size();
     }
 
+    public void notifyList(ArrayList<Model.CustomDiary> diaries) {
+        this.diaries = diaries;
+    }
+
     @Override
     public Object getItem(int i) {
         return diaries.get(i);
