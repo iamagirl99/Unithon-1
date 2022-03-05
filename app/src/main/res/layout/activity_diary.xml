@@ -55,8 +55,8 @@
 
             <ImageView
                 android:id="@+id/imgv_diary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="373dp"
+                android:layout_height="500dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
@@ -72,8 +72,8 @@
                 android:layout_height="180dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="-11dp"
-                android:layout_marginTop="-20dp"
+                android:layout_marginStart="-25dp"
+                android:layout_marginTop="-21dp"
                 app:srcCompat="@drawable/diary_left_postit" />
 
             <ImageView
@@ -82,28 +82,30 @@
                 android:layout_height="200dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="223dp"
-                android:layout_marginTop="214dp"
+                android:layout_marginStart="251dp"
+                android:layout_marginTop="382dp"
                 android:layout_marginEnd="0dp"
                 app:srcCompat="@drawable/diary_right_postit" />
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/memberTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/adamina"
             android:text="Member: 5/7"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:fontFamily="@font/adamina"
-            android:layout_marginStart="30dp"/>
+            android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/turnTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/adamina"
             android:text="Today : Your turn"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:fontFamily="@font/adamina"
-            android:layout_marginStart="30dp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class HomeGridAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Model.Diary> diaries;
-    public HomeGridAdapter(ArrayList<Model.Diary> diaries) {
+    ArrayList<Model.CustomDiary> diaries;
+    public HomeGridAdapter(ArrayList<Model.CustomDiary> diaries) {
         this.diaries = diaries;
     }
     @Override
@@ -41,7 +41,7 @@ public class HomeGridAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         context = viewGroup.getContext();
-        Model.Diary diary = diaries.get(i);
+        Model.Diary diary = diaries.get(i).getDiary();
 
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -55,7 +55,8 @@ public class HomeGridAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DiaryActivity.class);
-                intent.putExtra("order", i);
+                intent.putExtra("diary_num", i);
+                intent.putExtra("my_diary", true);
                 context.startActivity(intent);
             }
         });
