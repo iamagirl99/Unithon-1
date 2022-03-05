@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/drawable/round_button.xml" value="0.17" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/drawable/shadow_button.xml" value="0.35820894502642775" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/layout/activity_main.xml" value="0.20625" />
+        <entry key="..\:/Users/chois/GitLabEX/Unithon/app/src/main/res/layout/login_layout.xml" value="0.2364179037174423" />
         <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.2445" />
         <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/drawable/side_nav_bar.xml" value="0.193" />
         <entry key="..\:/Users/pc/Desktop/2022Project/Unithon/app/src/main/res/layout/activity_diary.xml" value="0.18489583333333334" />

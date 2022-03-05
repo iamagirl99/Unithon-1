@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Unithon">
-        <activity
+
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+
             android:name=".Comment.CommentActivity"
             android:exported="false"
             android:theme="@style/Theme.Unithon.NoActionBar"/>
@@ -26,6 +29,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MainActivity"
