@@ -91,6 +91,7 @@ public class NewDiaryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 id_view = R.id.addCover;
+
                 PermissionListener permissionlistener = new PermissionListener() {
                     @Override
                     public void onPermissionGranted() {
@@ -100,6 +101,8 @@ public class NewDiaryActivity extends AppCompatActivity {
                                 doTakeAlbumAction();
                             }
                         };
+                        Toast.makeText(NewDiaryActivity.this, "권한 허가", Toast.LENGTH_SHORT).show();
+
 
                         DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
                             @Override
@@ -107,6 +110,7 @@ public class NewDiaryActivity extends AppCompatActivity {
                                 dialog.dismiss();
                             }
                         };
+
 
                         new AlertDialog.Builder(NewDiaryActivity.this)
                                 .setTitle("업로드 할 이미지 선택")
@@ -122,15 +126,16 @@ public class NewDiaryActivity extends AppCompatActivity {
                     }
 
                 };
-
-                TedPermission.with(getApplicationContext())
+                TedPermission.with(NewDiaryActivity.this)
                         .setPermissionListener(permissionlistener)
                         .setRationaleMessage("내부 저장소 및 카메라 권한이 필요합니다. ")
                         .setDeniedMessage("[설정] > [권한] 에서 권한을 허용할 수 있습니다.")
-                        .setPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                Manifest.permission.CAMERA})
+                        .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,
+
+                                Manifest.permission.INTERNET,
+                                Manifest.permission.CAMERA)
                         .check();
+
 
             }
         });
