@@ -1,5 +1,8 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
+import static com.example.unithon.DummyData.diaries;
+
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -70,7 +73,7 @@ public class NewDiaryActivity extends AppCompatActivity {
 
         addCover.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 PermissionListener permissionlistener = new PermissionListener() {
                     @Override
                     public void onPermissionGranted() {
@@ -126,7 +129,13 @@ public class NewDiaryActivity extends AppCompatActivity {
 
                 String password = diaryPassword.getText().toString();
 
+                Bitmap cover =
+                Bitmap template =
 
+                Model.Diary diary = new Model.Diary(name, cover, hashtag, password, template);
+
+                currentUser.getDiaries().add(new Model.CustomDiary(diary));
+                diaries.add(diary);
             }
         });
 
@@ -178,6 +187,7 @@ public class NewDiaryActivity extends AppCompatActivity {
         });
 
     }
+
     public void doTakeAlbumAction() {
 
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -234,56 +244,6 @@ public class NewDiaryActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onClick(@NonNull View view) {
-//        id_view = view.getId();
-//
-//        if(id_view == R.id.addCover){
-//
-//            PermissionListener permissionlistener = new PermissionListener() {
-//                @Override
-//                public void onPermissionGranted() {
-//                    DialogInterface.OnClickListener albumListener = new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            doTakeAlbumAction();
-//                        }
-//                    };
-//
-//                    DialogInterface.OnClickListener cancelListener = new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            dialog.dismiss();
-//                        }
-//                    };
-//
-//                    new AlertDialog.Builder(NewDiaryActivity.this)
-//                            .setTitle("업로드 할 이미지 선택")
-//                            .setPositiveButton("앨범선택", albumListener)
-//                            .setNegativeButton("취소", cancelListener)
-//                            .show();
-//                }
-//
-//                @Override
-//                public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-//                    Toast.makeText(NewDiaryActivity.this, "권한 거부\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
-//
-//                }
-//
-//            };
-//
-//            TedPermission.with(getApplicationContext())
-//                    .setPermissionListener(permissionlistener)
-//                    .setRationaleMessage("내부 저장소 및 카메라 권한이 필요합니다. ")
-//                    .setDeniedMessage("[설정] > [권한] 에서 권한을 허용할 수 있습니다.")
-//                    .setPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-//                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                            Manifest.permission.CAMERA})
-//                    .check();
-//
-//        }
-//    }
-
     private void storeCropImage(Bitmap bitmap, String filePath) {
 
         try {
@@ -310,62 +270,4 @@ public class NewDiaryActivity extends AppCompatActivity {
             Log.e("path error", e.getMessage());
         }
     }
-
-//    private void tedPermission() {
-//        PermissionListener permissionListener = new PermissionListener() {
-//            @Override
-//            public void onPermissionGranted() {
-//
-//            }
-//
-//            @Override
-//            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-//
-//            }
-//        };
-//
-//        TedPermission.with(this)
-//                .setPermissionListener(permissionListener)
-//                .setRationaleMessage(getResources().getString(R.string.permission_2))
-//                .setDeniedMessage(getResources().getString(R.string.permission_1))
-//                .setPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
-//                .check();
-//    }
-
-//    private void goToAlbum() {
-//        Intent intent = new Intent(Intent.ACTION_PICK);
-//        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-//        startActivityForResult(intent, PICK_FROM_ALBUM);
-//    }
-//
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == PICK_FROM_ALBUM) {
-//
-//            Uri photoUri = data.getData();
-//
-//            Cursor cursor = null;
-//
-//            try {
-//
-//                /*
-//                 *  Uri 스키마를
-//                 *  content:/// 에서 file:/// 로  변경한다.
-//                 */
-//                String[] proj = {MediaStore.Images.Media.DATA};
-//
-//                assert photoUri != null;
-//                cursor = getContentResolver().query(photoUri, proj, null, null, null);
-//
-//                assert cursor != null;
-//                int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//
-//                cursor.moveToFirst();
-//
-//            } finally {
-//                if (cursor != null) {
-//                    cursor.close();
-//                }
-//            }
-//        }
-//    }
 }

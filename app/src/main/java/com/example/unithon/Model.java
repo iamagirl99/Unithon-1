@@ -1,5 +1,6 @@
 package com.example.unithon;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import java.util.ArrayList;
@@ -18,18 +19,12 @@ public class Model {
             turnId = "Me";
         }
 
-        public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
-                     ArrayList<String> hashtag, String password, boolean isofferedTemplate,
-                     Drawable offeredTemplate, Uri uploadTemplate) {
+        public Diary(String name, Bitmap cover, ArrayList<String> hashtag, String password, Bitmap template) {
             this.name = name;
-            this.isofferedCover = isofferedCover;
-            this.offeredCover = offeredCover;
-            this.uploadCover = uploadCover;
             this.hashtag = hashtag;
             this.password = password;
-            this.isofferedTemplate = isofferedTemplate;
-            this.offeredTemplate = offeredTemplate;
-            this.uploadTemplate = uploadTemplate;
+            this.cover = cover;
+            this.template = template;
         }
 
         public String getTurnId() {
@@ -41,12 +36,8 @@ public class Model {
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
         String password;
-        boolean isofferedCover;
-        Drawable offeredCover;
-        Uri uploadCover;
-        boolean isofferedTemplate;
-        Drawable offeredTemplate;
-        Uri uploadTemplate;
+        Bitmap cover;
+        Bitmap template;
         String turnId;
 
         public void setName(String name) {
@@ -77,37 +68,6 @@ public class Model {
             this.password = password;
         }
 
-        public Drawable getOfferedCover() {
-            return offeredCover;
-        }
-
-        public void setOfferedCover(Drawable offeredCover) {
-            this.offeredCover = offeredCover;
-        }
-
-        public Uri getUploadCover() {
-            return uploadCover;
-        }
-
-        public void setUploadCover(Uri uploadCover) {
-            this.uploadCover = uploadCover;
-        }
-
-        public Drawable getOfferedTemplate() {
-            return offeredTemplate;
-        }
-
-        public void setOfferedTemplate(Drawable offeredTemplate) {
-            this.offeredTemplate = offeredTemplate;
-        }
-
-        public Uri getUploadTemplate() {
-            return uploadTemplate;
-        }
-
-        public void setUploadTemplate(Uri uploadTemplate) {
-            this.uploadTemplate = uploadTemplate;
-        }
         String owner_id;
         ArrayList<User> members;
 
@@ -187,6 +147,10 @@ public class Model {
 
         public CustomDiary() {
             diary = new Diary();
+            bookmarks = new ArrayList<>();
+        }
+        public CustomDiary(Diary diary) {
+            this.diary = diary;
             bookmarks = new ArrayList<>();
         }
 
