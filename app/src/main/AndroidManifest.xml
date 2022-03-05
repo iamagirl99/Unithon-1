@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unithon">
         <activity
+            android:name=".CommentActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Unithon.NoActionBar"/>
+        <activity
             android:name=".ReadActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Unithon.NoActionBar"/>
         <activity
             android:name=".DiaryActivity"
             android:exported="true"
@@ -27,7 +32,6 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Unithon.NoActionBar">
-            android:exported="true">
         </activity>
     </application>
 
