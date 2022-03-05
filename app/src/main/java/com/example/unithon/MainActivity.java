@@ -92,17 +92,31 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setClickable(true);
 
         Button changeBtn, myDiaryBtn;
-//        navigationView.getMenu().findItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                Log.d("@@@#@@", "!!!!!!");
+                if (id == R.id.nav_change_MBTI) {
+                    Log.e("$$$$$", "@@@@");
+                    CustomDialog customDialog = new CustomDialog(getApplicationContext());
+                    customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                    customDialog.show();
+                    return true;
+                }
+
+                return false;
+            }
+        });
+//        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
 //            public boolean onMenuItemClick(MenuItem menuItem) {
-//                CustomDialog customDialog = new CustomDialog(getApplicationContext());
-//                customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-//                customDialog.show();
+//
 //                return true;
 //            }
 //        });
 //
-//        navigationView.getMenu().findItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//        navigationView.getMenu().findItem(R.id.nav_my_diary).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
 //            public boolean onMenuItemClick(MenuItem menuItem) {
 //                return false;
