@@ -39,8 +39,10 @@
                     android:id="@+id/newDiaryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/adamina"
                     android:gravity="center"
                     android:text="New Diary"
+                    android:textColor="#000000"
                     android:textSize="40sp" />
 
             </LinearLayout>
@@ -52,7 +54,9 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="@font/chosunilbo"
                 android:text="어떤 사람들과 교환일기를 적고 싶으신가요?"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <EditText
@@ -64,6 +68,7 @@
                 android:layout_marginEnd="7dp"
                 android:layout_marginBottom="4dp"
                 android:ems="10"
+                android:fontFamily="@font/chosunilbo"
                 android:hint="해쉬태그를 작성해 주세요. 각 해시태그는 띄어쓰기로 구분됩니다."
                 android:inputType="textPersonName"
                 android:textSize="13sp" />
@@ -75,7 +80,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="@font/chosunilbo"
                 android:text="다이어리 표지 만들기"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -89,6 +96,7 @@
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:backgroundTint="@color/upload_color"
+                    android:fontFamily="@font/chosunilbo"
                     android:text="Upload Picture"
                     android:textColor="@color/black"></Button>
 
@@ -118,7 +126,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="@font/chosunilbo"
                 android:text="제목 정하기"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <EditText
@@ -130,6 +140,7 @@
                 android:layout_marginEnd="7dp"
                 android:layout_marginBottom="4dp"
                 android:ems="10"
+                android:fontFamily="@font/chosunilbo"
                 android:hint="다이어리 제목을 정해주세요."
                 android:inputType="textPersonName"
                 android:textSize="13sp" />
@@ -141,7 +152,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="4dp"
+                android:fontFamily="@font/chosunilbo"
                 android:text="비밀번호 설정(선택)"
+                android:textColor="#000000"
                 android:textSize="16sp" />
 
             <EditText
@@ -153,6 +166,7 @@
                 android:layout_marginEnd="7dp"
                 android:layout_marginBottom="4dp"
                 android:ems="10"
+                android:fontFamily="@font/chosunilbo"
                 android:hint="숫자 6자리를 입력해주세요."
                 android:inputType="textPersonName"
                 android:textSize="13sp" />
@@ -168,8 +182,9 @@
                     android:id="@+id/addTemplate"
                     android:layout_width="120dp"
                     android:layout_height="160dp"
-                    android:backgroundTint="@color/upload_color"
                     android:layout_gravity="center"
+                    android:backgroundTint="@color/upload_color"
+                    android:fontFamily="@font/chosunilbo"
                     android:text="Upload Template"
                     android:textColor="@color/black"></Button>
 
@@ -186,12 +201,14 @@
                 android:id="@+id/makeDiary"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/round_button"
                 android:backgroundTint="@color/button_color1"
                 android:elevation="10dp"
-                android:text="Complete !"/>
+                android:textAllCaps="false"
+                android:fontFamily="@font/Streetwear"
+                android:text="Complete !" />
 
         </LinearLayout>
 
