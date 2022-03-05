@@ -5,25 +5,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class HomeGridAdapter extends BaseAdapter {
+public class PagesGridAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Model.Diary> diaries;
-    public HomeGridAdapter(ArrayList<Model.Diary> diaries) {
-        this.diaries = diaries;
+    ArrayList<Model.Page> pages;
+    public PagesGridAdapter(ArrayList<Model.Page> pages) {
+        this.pages = pages;
     }
     @Override
     public int getCount() {
-        return diaries.size();
+        return pages.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return diaries.get(i);
+        return pages.get(i);
     }
 
     @Override
@@ -34,15 +36,16 @@ public class HomeGridAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         context = viewGroup.getContext();
-        Model.Diary diary = diaries.get(i);
+        Model.Page page = pages.get(i);
 
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.summary_diary, viewGroup, false);
+            view = inflater.inflate(R.layout.item_page, viewGroup, false);
         }
 
-        TextView diaryNameTv = view.findViewById(R.id.diary_name);
-        diaryNameTv.setText(diary.name);
+        ImageView pageImageView = view.findViewById(R.id.page_image_view);
+        ImageButton imageButton = view.findViewById(R.id.bookmark);
+//        pageImageView.setImageDrawable(context.getResources().getIdentifier(page.image, "drawable", context.getPackageName()));
 
         return view;
     }

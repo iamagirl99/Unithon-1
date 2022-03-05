@@ -4,22 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class MyDiaryFragment extends Fragment {
     GridView gridView;
     ArrayList<Model.Diary> dummy_diaries;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
