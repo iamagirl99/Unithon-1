@@ -49,7 +49,12 @@ public class EveryDiaryFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                diaryAdapter.getFilter().filter(newText);
+                System.out.println(newText);
+                if(newText.length() != 0 && newText.charAt(0) == '#') {
+                    diaryAdapter.getFilter().filter(newText);
+                } else {
+                    diaryAdapter.getFilter().filter(newText);
+                }
                 return false;
             }
         });

@@ -3,6 +3,7 @@ package com.example.unithon;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DummyData {
     public static final int MAX_MEMBER = 7;
