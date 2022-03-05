@@ -1,5 +1,7 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
+
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -19,8 +21,12 @@ public class PagesGridAdapter extends BaseAdapter {
     int diaryNum = 0;
     Context context;
     ArrayList<Model.Page> pages;
-    public PagesGridAdapter(ArrayList<Model.Page> pages) {
+    Model.Diary diary;
+
+    public PagesGridAdapter(ArrayList<Model.Page> pages, int diaryNum) {
         this.pages = pages;
+        diary = currentUser.getDiaries().get(diaryNum).getDiary();
+        this.diaryNum = diaryNum;
     }
     @Override
     public int getCount() {
@@ -53,7 +59,7 @@ public class PagesGridAdapter extends BaseAdapter {
 
 //        imageButton.setColorFilter(R.color.red, PorterDuff.Mode.SRC_ATOP);
 //        imageButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFF0000")));/
-        if (DummyData.diaries.get(diaryNum).getBookmarks().contains(i)) {
+        if (currentUser.diaries.get(diaryNum).getBookmarks().contains(i)) {
             imageButton.setImageResource(R.drawable.ic_baseline_bookmark_pressed_24);
         } else {
             imageButton.setImageResource(R.drawable.ic_baseline_bookmark_24);
@@ -62,7 +68,7 @@ public class PagesGridAdapter extends BaseAdapter {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Integer> bookmarks = DummyData.diaries.get(diaryNum).getBookmarks();
+                ArrayList<Integer> bookmarks = currentUser.diaries.get(diaryNum).getBookmarks();
                 if (bookmarks.contains(i)) {
                     bookmarks.remove(bookmarks.indexOf(i));
                     imageButton.setImageResource(R.drawable.ic_baseline_bookmark_24);
