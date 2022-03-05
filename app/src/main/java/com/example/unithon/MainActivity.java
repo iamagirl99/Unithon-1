@@ -16,11 +16,15 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    TabLayout tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_home)
                 .setOpenableLayout(drawer)
                 .build();
+
+        float radius = getResources().getDimension(R.dimen.roundcorner);
+        MaterialShapeDrawable navViewBackground = (MaterialShapeDrawable) navigationView.getBackground();
+        navViewBackground.setShapeAppearanceModel(
+                navViewBackground.getShapeAppearanceModel()
+                        .toBuilder()
+                        .setTopRightCorner(CornerFamily.ROUNDED,radius)
+                        .setBottomRightCorner(CornerFamily.ROUNDED,radius)
+                        .build());
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
