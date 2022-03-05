@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CoverAdapter extends RecyclerView.Adapter<CoverAdapter.ViewHolder> {
-class CoverListAdapter extends RecyclerView.Adapter<CoverListAdapter.ViewHolder> {
     private ArrayList<Integer> coverSrcList;
 
     public void submitList(ArrayList<Integer> coverSrcList) {
@@ -19,7 +18,7 @@ class CoverListAdapter extends RecyclerView.Adapter<CoverListAdapter.ViewHolder>
         notifyDataSetChanged();
     }
 
-    public CoverAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.style_option, parent, false);
         return new ViewHolder(view);
     }
