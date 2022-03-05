@@ -41,12 +41,9 @@
         <entry key="app/src/main/res/drawable/diary_border_white.xml" value="0.147" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.147" />
         <entry key="app/src/main/res/drawable/image_border.xml" value="0.147" />
-        <entry key="app/src/main/res/drawable/round_button.xml" value="0.147" />
         <entry key="app/src/main/res/font/font.xml" value="0.1671875" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1818756103515625" />
-        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_diary.xml" value="0.2307693481445313" />
-        <entry key="app/src/main/res/layout/activity_gather_diary.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/activity_read.xml" value="0.18392333984374998" />
@@ -74,6 +71,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
 
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
 
