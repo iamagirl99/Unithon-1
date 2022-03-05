@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.unithon.DiaryDetail.ReadActivity;
+import com.example.unithon.Member.MemberActivity;
 
 public class DiaryActivity extends AppCompatActivity {
 

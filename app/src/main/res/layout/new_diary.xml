@@ -91,14 +91,12 @@
                 android:orientation="horizontal"
                 android:layout_margin="4dp">
 
-                <Button
+                <ImageView
                     android:id="@+id/addCover"
                     android:layout_width="120dp"
                     android:layout_height="160dp"
-                    android:backgroundTint="@color/upload_color"
-                    android:fontFamily="@font/chosunilbo"
-                    android:text="Upload Picture"
-                    android:textColor="@color/black"></Button>
+                    app:srcCompat="@drawable/upload_picture"
+                    ></ImageView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/coverList"
@@ -170,32 +168,6 @@
                 android:hint="숫자 6자리를 입력해주세요."
                 android:inputType="textPersonName"
                 android:textSize="13sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_margin="4dp">
-
-                <Button
-                    android:id="@+id/addTemplate"
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    android:layout_gravity="center"
-                    android:backgroundTint="@color/upload_color"
-                    android:fontFamily="@font/chosunilbo"
-                    android:text="Upload Template"
-                    android:textColor="@color/black"></Button>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/paperStyleList"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:orientation="horizontal"/>
-
-            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/makeDiary"

@@ -1,5 +1,6 @@
 package com.example.unithon;
 
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Model {
             this.pages = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
-            this.hashtag = new ArrayList<>();
+            this.hashtag = "";
             this.password = "";
             turnId = "Me";
         }
@@ -30,15 +31,11 @@ public class Model {
         public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
                      ArrayList<String> hashtag, String password, boolean isofferedTemplate,
                      Drawable offeredTemplate, Uri uploadTemplate) {
+        public Diary(String name, String cover, String hashtag, String password) {
             this.name = name;
-            this.isofferedCover = isofferedCover;
-            this.offeredCover = offeredCover;
-            this.uploadCover = uploadCover;
             this.hashtag = hashtag;
             this.password = password;
-            this.isofferedTemplate = isofferedTemplate;
-            this.offeredTemplate = offeredTemplate;
-            this.uploadTemplate = uploadTemplate;
+            this.cover = cover;
         }
 
         public String getTurnId() {
@@ -46,26 +43,21 @@ public class Model {
         }
 
         String name;
-        ArrayList<String> hashtag;
+        String hashtag;
         ArrayList<Page> pages;
         String password;
-        boolean isofferedCover;
-        Drawable offeredCover;
-        Uri uploadCover;
-        boolean isofferedTemplate;
-        Drawable offeredTemplate;
-        Uri uploadTemplate;
+        String cover;
         String turnId;
 
         public void setName(String name) {
             this.name = name;
         }
 
-        public ArrayList<String> getHashtag() {
+        public String getHashtag() {
             return hashtag;
         }
 
-        public void setHashtag(ArrayList<String> hashtag) {
+        public void setHashtag(String hashtag) {
             this.hashtag = hashtag;
         }
 
@@ -81,37 +73,6 @@ public class Model {
             this.password = password;
         }
 
-        public Drawable getOfferedCover() {
-            return offeredCover;
-        }
-
-        public void setOfferedCover(Drawable offeredCover) {
-            this.offeredCover = offeredCover;
-        }
-
-        public Uri getUploadCover() {
-            return uploadCover;
-        }
-
-        public void setUploadCover(Uri uploadCover) {
-            this.uploadCover = uploadCover;
-        }
-
-        public Drawable getOfferedTemplate() {
-            return offeredTemplate;
-        }
-
-        public void setOfferedTemplate(Drawable offeredTemplate) {
-            this.offeredTemplate = offeredTemplate;
-        }
-
-        public Uri getUploadTemplate() {
-            return uploadTemplate;
-        }
-
-        public void setUploadTemplate(Uri uploadTemplate) {
-            this.uploadTemplate = uploadTemplate;
-        }
         String owner_id;
         ArrayList<User> members;
 
@@ -199,6 +160,10 @@ public class Model {
             diary = new Diary();
             bookmarks = new ArrayList<>();
         }
+        public CustomDiary(Diary diary) {
+            this.diary = diary;
+            bookmarks = new ArrayList<>();
+        }
 
         public Diary getDiary() {
             return diary;
@@ -211,7 +176,7 @@ public class Model {
 
     public static class User {
         public User() {
-            this.mbti = MBTI.ESTJ;
+            this.mbti = MBTI.INTJ;
             this.id = "Me";
             this.pages = new ArrayList<>();
             this.diaries = new ArrayList<>();
@@ -229,6 +194,10 @@ public class Model {
 
         public String getMbti(){
             return mbti.name();
+        }
+
+        public void setMbti(MBTI mbti) {
+            this.mbti = mbti;
         }
 
         public String getId(){
@@ -250,7 +219,7 @@ public class Model {
         }
     }
 
-    enum MBTI {
+    public enum MBTI {
         ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
         INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
     }

@@ -36,9 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/adamina"
+        android:fontFamily="@font/chosunilbo"
         android:gravity="center"
-        android:text="ENTJ"
+        android:text="ENFP"
         android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold" />
