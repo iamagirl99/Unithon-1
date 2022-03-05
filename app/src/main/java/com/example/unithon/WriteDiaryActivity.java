@@ -1,5 +1,7 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.diaries;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -126,6 +128,13 @@ public class WriteDiaryActivity extends AppCompatActivity {
 
                 case 101:
                     imageView.setImageURI(uri);
+                    //여기서부터 받는 코드
+                    String new_page = uri.toString();
+                    Intent income_intent = getIntent();
+                    int order = income_intent.getIntExtra("order", 0);
+                    Model.Page np = new Model.Page();
+                    np.image = new_page;
+                    diaries.get(order).pages.add(np);
                     Toast.makeText(getApplicationContext(), "photo saved", Toast.LENGTH_SHORT).show();
                     break;
             }
