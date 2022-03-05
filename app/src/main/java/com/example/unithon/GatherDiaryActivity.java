@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 public class GatherDiaryActivity extends AppCompatActivity {
 
-    ArrayList<Model.Page> pages;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +17,7 @@ public class GatherDiaryActivity extends AppCompatActivity {
 
         GridView gridView = findViewById(R.id.pages_grid_view);
 
-        PagesGridAdapter gridAdapter = new PagesGridAdapter(pages);
+        PagesGridAdapter gridAdapter = new PagesGridAdapter(DummyData.diaries.get(0).getPages());
         gridView.setAdapter(gridAdapter);
     }
 
