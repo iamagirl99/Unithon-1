@@ -29,6 +29,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:fontFamily="@font/adamina"
         app:layout_constraintEnd_toStartOf="@+id/imgv_read_right"
         app:layout_constraintStart_toEndOf="@+id/imgv_read_left"
         app:layout_constraintTop_toTopOf="parent" />
