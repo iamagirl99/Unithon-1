@@ -14,13 +14,13 @@
         android:layout_marginTop="15dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:background="@drawable/background_cats"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/edt_comment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/edt_comment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -28,13 +28,13 @@
         android:inputType="textMultiLine"
         app:layout_constraintTop_toBottomOf="@id/comment_rcv"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintEnd_toStartOf="@+id/imgb_add_comment"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="5dp"
         android:layout_marginBottom="5dp"/>
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/imgb_add_comment"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@android:color/transparent"
