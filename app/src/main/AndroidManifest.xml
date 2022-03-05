@@ -29,7 +29,6 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Unithon.NoActionBar">
-<<<<<<< HEAD
             android:exported="true"></activity>
 
         <activity android:name=".LoginActivity"
@@ -38,10 +37,4 @@
 
     </application>
 
-=======
-            android:exported="true">
-        </activity>
-    </application>
-
->>>>>>> 9deb02484c1c02c2dc01c706ca778725047309a2
 </manifest>
