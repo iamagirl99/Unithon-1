@@ -13,7 +13,7 @@ public class Model {
             this.pages = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
-            this.hashtag = "";
+            this.hashtag = "#해커톤 #재밌다";
             this.password = "";
             turnId = "Me";
         }
@@ -25,6 +25,7 @@ public class Model {
             this.members = new ArrayList<>();
             this.password = "";
             this.turnId = turnId;
+            hashtag = "#심심해 #졸려";
         }
 
         public Diary(String name, String cover, String hashtag, String password) {
@@ -32,6 +33,7 @@ public class Model {
             this.hashtag = hashtag;
             this.password = password;
             this.cover = cover;
+            this.hashtag = "#자고싶다 #제발";
         }
 
         public String getTurnId() {
