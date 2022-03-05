@@ -31,6 +31,8 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -92,10 +94,14 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setClickable(true);
 
         Button changeBtn, myDiaryBtn;
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                System.out.println(item);
                 int id = item.getItemId();
+                System.out.println(id);
+                System.out.println(R.id.nav_change_MBTI);
                 Log.d("@@@#@@", "!!!!!!");
                 if (id == R.id.nav_change_MBTI) {
                     Log.e("$$$$$", "@@@@");
@@ -107,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return false;
             }
+
         });
 //        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
@@ -122,9 +129,12 @@ public class MainActivity extends AppCompatActivity {
 //                return false;
 //            }
 //        });
-
-
     }
+
+//    private void setNavigationViewListener() {
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+//        navigationView.setNavigationItemSelectedListener(this);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,4 +149,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }
