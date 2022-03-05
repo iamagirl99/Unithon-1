@@ -4,19 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 
+import com.example.unithon.Comment.CommentActivity;
 import com.example.unithon.DummyData;
+import com.example.unithon.GatherDiaryActivity;
 import com.example.unithon.R;
 
 public class ReadActivity extends AppCompatActivity {
+
+    ImageButton comment_btn;
+    ImageButton bookmark_btn;
+    ImageButton gather_diary_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
+        comment_btn = findViewById(R.id.comment_btn);
+        bookmark_btn = findViewById(R.id.bookmark_btn);
+        gather_diary_btn = findViewById(R.id.gather_diary_btn);
         Log.e("@@@@@@", "Ha...");
 
         Intent intent = getIntent();
@@ -34,6 +47,30 @@ public class ReadActivity extends AppCompatActivity {
         DiaryViewPagerAdapter viewPagerAdapter = new DiaryViewPagerAdapter(this, DummyData.diaries.get(order).getPages());
         viewPager2.setAdapter(viewPagerAdapter);
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        comment_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CommentActivity.class);
+                intent.putExtra("order", order);
+                startActivity(intent);
+            }
+        });
+
+        bookmark_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO : 넘겨준 책 번호와 북마크한 페이지 번호 더미데이터에 추가.
+            }
+        });
+
+        gather_diary_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO : 어떤 다이어리인지 인덱스 번호 인텐트에 담아서 보내기.
+                Intent intent = new Intent(getApplicationContext(), GatherDiaryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public static class PageCurlPageTransformer implements ViewPager2.PageTransformer {
@@ -54,5 +91,7 @@ public class ReadActivity extends AppCompatActivity {
                 }
             }
         }
+
+
     }
 }
