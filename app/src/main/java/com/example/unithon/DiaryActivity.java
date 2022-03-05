@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+
+import com.example.unithon.Member.MemberActivity;
 
 public class DiaryActivity extends AppCompatActivity {
 
@@ -32,6 +35,15 @@ public class DiaryActivity extends AppCompatActivity {
         }
 
         memberTv.setText("참여한 참가자 수 : " + diary.getMembers().size());
-//        if (diary.get)
+
+        memberTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DiaryActivity.this, MemberActivity.class);
+                //TODO: 인텐트에 추가할 정보 있으면 추가하기
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -137,13 +137,13 @@ public class NewDiaryActivity extends AppCompatActivity {
                     image = BitmapToString(bitmap);
                 }
                 String hashtag = conditionOfMember.getText().toString();
-
                 Model.Diary diary = new Model.Diary(name, image, hashtag, password);
                 diaries.add(diary);
                 currentUser.getDiaries().add(new Model.CustomDiary(diary));
 
             }
         });
+
 
 
     }
