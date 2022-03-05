@@ -49,6 +49,8 @@ public class DiaryViewPagerAdapter extends RecyclerView.Adapter<DiaryViewPagerAd
         return pages.size();
     }
 
+
+
     class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;

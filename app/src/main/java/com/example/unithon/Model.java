@@ -13,6 +13,9 @@ public class Model {
             this.bookmarks = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
+            this.hashtag = new ArrayList<>();
+            this.password = "";
+            turnId = "Me";
         }
 
         public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
@@ -29,6 +32,10 @@ public class Model {
             this.uploadTemplate = uploadTemplate;
         }
 
+        public String getTurnId() {
+            return turnId;
+        }
+
         String name;
         ArrayList<String> hashtag;
         ArrayList<Page> pages;
@@ -40,6 +47,7 @@ public class Model {
         boolean isofferedTemplate;
         Drawable offeredTemplate;
         Uri uploadTemplate;
+        String turnId;
 
         public void setName(String name) {
             this.name = name;
@@ -163,23 +171,45 @@ public class Model {
     public static class Page {
         public Page() {
             this.image = "cover_test";
+            this.comments = new ArrayList<>();
         }
 
         public String getImage() {
             return image;
         }
         String image;
+        ArrayList<Comment> comments;
+    }
+
+    public static class CustomDiary {
+        Diary diary;
+        ArrayList<PageInfo> bookmarks;
+
+        public CustomDiary() {
+            diary = new Diary();
+            bookmarks = new ArrayList<>();
+        }
+
+        public Diary getDiary() {
+            return diary;
+        }
+
+        public ArrayList<PageInfo> getBookmarks() {
+            return bookmarks;
+        }
     }
 
     public static class User {
         public User() {
             this.mbti = MBTI.ESTJ;
-            this.id = "None";
-            this.bookmarks = new ArrayList<Bookmark>();
+            this.id = "Me";
+            this.pages = new ArrayList<>();
+            this.diaries = new ArrayList<>();
         }
         MBTI mbti;
         String id;
-        ArrayList<Bookmark> bookmarks;
+        ArrayList<PageInfo> pages;
+        ArrayList<CustomDiary> diaries;
 
         public String getMbti(){
             return mbti.name();
@@ -189,10 +219,14 @@ public class Model {
             return id;
         }
 
-        public ArrayList<Bookmark> getBookmarks() { return bookmarks;}
+        public ArrayList<PageInfo> getPages() { return pages;}
 
-        public void setBookmarks(ArrayList<Bookmark> bookmarks){
-            this.bookmarks = bookmarks;
+        public ArrayList<CustomDiary> getDiaries() {
+            return diaries;
+        }
+
+        public void setBookmarks(ArrayList<PageInfo> my_diary){
+            this.pages = my_diary;
         }
     }
 
@@ -201,10 +235,10 @@ public class Model {
         INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
     }
 
-    public class Bookmark{
+    public class PageInfo{
         int diary_num;
         int page_num;
-        public Bookmark(int diary_num, int page_num){
+        public PageInfo(int diary_num, int page_num){
             this.diary_num = diary_num;
             this.page_num = page_num;
         }

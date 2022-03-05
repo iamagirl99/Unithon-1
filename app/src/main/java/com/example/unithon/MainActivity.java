@@ -31,6 +31,8 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -92,25 +94,47 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setClickable(true);
 
         Button changeBtn, myDiaryBtn;
-//        navigationView.getMenu().findItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                System.out.println(item);
+                int id = item.getItemId();
+                System.out.println(id);
+                System.out.println(R.id.nav_change_MBTI);
+                Log.d("@@@#@@", "!!!!!!");
+                if (id == R.id.nav_change_MBTI) {
+                    Log.e("$$$$$", "@@@@");
+                    CustomDialog customDialog = new CustomDialog(getApplicationContext());
+                    customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                    customDialog.show();
+                    return true;
+                }
+
+                return false;
+            }
+
+        });
+//        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
 //            public boolean onMenuItemClick(MenuItem menuItem) {
-//                CustomDialog customDialog = new CustomDialog(getApplicationContext());
-//                customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-//                customDialog.show();
+//
 //                return true;
 //            }
 //        });
 //
-//        navigationView.getMenu().findItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//        navigationView.getMenu().findItem(R.id.nav_my_diary).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
 //            public boolean onMenuItemClick(MenuItem menuItem) {
 //                return false;
 //            }
 //        });
-
-
     }
+
+//    private void setNavigationViewListener() {
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+//        navigationView.setNavigationItemSelectedListener(this);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -125,4 +149,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

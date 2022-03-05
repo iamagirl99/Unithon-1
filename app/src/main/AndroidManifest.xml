@@ -19,7 +19,13 @@ package="com.example.unithon">
     <activity
         android:name=".LoginActivity"
         android:exported="true"
-        android:theme="@style/Theme.Unithon.NoActionBar" />
+        android:theme="@style/Theme.Unithon.NoActionBar" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
     <activity
         android:name=".WriteDiaryActivity"
         android:exported="true"
@@ -52,11 +58,6 @@ package="com.example.unithon">
         android:exported="true"
         android:label="@string/app_name"
         android:theme="@style/Theme.Unithon.NoActionBar" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
     </activity>
     <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorActivity" />
     <activity android:name="com.dsphotoeditor.sdk.activity.DsPhotoEditorStickerActivity" />

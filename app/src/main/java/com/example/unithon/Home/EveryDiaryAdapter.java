@@ -1,5 +1,7 @@
 package com.example.unithon.Home;
 
+import android.content.Context;
+import android.content.Intent;
 import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.unithon.DiaryActivity;
 import com.example.unithon.Model;
 import com.example.unithon.R;
 
@@ -20,6 +23,11 @@ import java.util.List;
 public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.ViewHolder> implements Filterable {
     private List<Model.Diary> diaryList;
     private List<Model.Diary> filteredDiaryList;
+    Context context;
+
+    public EveryDiaryAdapter(Context context) {
+        this.context = context;
+    }
 
     public void submitList(List<Model.Diary> diaryList) {
         this.diaryList = diaryList;
@@ -53,12 +61,25 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
 
         void onBind(Model.Diary diary) {
             tvName.setText(diary.getName());
-            tvTags.setText(diary.getTags());
+            String tagString = "";
+            for (String tag : diary.getHashtag()) {
+                tagString += tag + " ";
+            }
+            tvTags.setText(tagString);
         }
     }
 
     public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.onBind(filteredDiaryList.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DiaryActivity.class);
+                intent.putExtra("diary_num", position);
+                intent.putExtra("my_diary", false);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
