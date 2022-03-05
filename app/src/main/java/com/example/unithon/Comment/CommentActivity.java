@@ -40,8 +40,8 @@ public class CommentActivity extends AppCompatActivity {
         imgv_comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                commentArrayList.add(new Model.Comment("test user", "2022.03.06 1: 54", editText.getText().toString()));
-
+                commentArrayList.add(new Model.Comment("ENFP", "2022.03.06 1: 54", editText.getText().toString()));
+                editText.setText("");
             }
         });
     }
