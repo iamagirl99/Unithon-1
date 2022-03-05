@@ -58,23 +58,24 @@
         app:srcCompat="@drawable/background_cats" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/image_view"
         android:layout_width="399dp"
         android:layout_height="548dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:srcCompat="@drawable/start_writing" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_pick"
+        app:srcCompat="@drawable/start_writing"
+        android:adjustViewBounds="true"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/bt_pick"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:background="@drawable/purple_round"
         android:backgroundTint="#BD69FF"
-        android:fontFamily="@font/Streetwear"
+        android:fontFamily="@font/streetwear"
         android:text="Add Picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
