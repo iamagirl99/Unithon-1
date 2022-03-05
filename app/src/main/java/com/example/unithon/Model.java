@@ -82,23 +82,37 @@ public class Model {
     public static class Page {
         public Page() {
             this.image = "cover_test";
+            this.comments = new ArrayList<>();
         }
 
         public String getImage() {
             return image;
         }
         String image;
+        ArrayList<Comment> comments;
+    }
+
+    public static class CustomDiary {
+        Diary diary;
+        ArrayList<PageInfo> bookmarks;
+
+        public CustomDiary() {
+            diary = new Diary();
+            bookmarks = new ArrayList<>();
+        }
     }
 
     public static class User {
         public User() {
             this.mbti = MBTI.ESTJ;
             this.id = "None";
-            this.bookmarks = new ArrayList<Bookmark>();
+            this.pages = new ArrayList<>();
+            this.diaries = new ArrayList<>();
         }
         MBTI mbti;
         String id;
-        ArrayList<Bookmark> bookmarks;
+        ArrayList<PageInfo> pages;
+        ArrayList<CustomDiary> diaries;
 
         public String getMbti(){
             return mbti.name();
@@ -108,10 +122,10 @@ public class Model {
             return id;
         }
 
-        public ArrayList<Bookmark> getBookmarks() { return bookmarks;}
+        public ArrayList<PageInfo> getPages() { return pages;}
 
-        public void setBookmarks(ArrayList<Bookmark> bookmarks){
-            this.bookmarks = bookmarks;
+        public void setBookmarks(ArrayList<PageInfo> my_diary){
+            this.pages = my_diary;
         }
     }
 
@@ -120,10 +134,10 @@ public class Model {
         INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
     }
 
-    public class Bookmark{
+    public class PageInfo{
         int diary_num;
         int page_num;
-        public Bookmark(int diary_num, int page_num){
+        public PageInfo(int diary_num, int page_num){
             this.diary_num = diary_num;
             this.page_num = page_num;
         }

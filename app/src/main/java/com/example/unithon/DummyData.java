@@ -3,6 +3,7 @@ package com.example.unithon;
 import java.util.ArrayList;
 
 public class DummyData {
+    public static Model.User currentUser;
     public static ArrayList<Model.Diary> diaries;
     public static ArrayList<Integer> coverSrcList  = new ArrayList<Integer>() {
         {
@@ -21,6 +22,7 @@ public class DummyData {
     };
 
     public DummyData() {
+        currentUser = new Model.User();
         init_diaries();
         init_pages();
     }
