@@ -94,9 +94,11 @@ public class Model {
         public User() {
             this.mbti = MBTI.ESTJ;
             this.id = "None";
+            this.bookmarks = new ArrayList<Bookmark>();
         }
         MBTI mbti;
         String id;
+        ArrayList<Bookmark> bookmarks;
 
         public String getMbti(){
             return mbti.name();
@@ -105,13 +107,27 @@ public class Model {
         public String getId(){
             return id;
         }
+
+        public ArrayList<Bookmark> getBookmarks() { return bookmarks;}
+
+        public void setBookmarks(ArrayList<Bookmark> bookmarks){
+            this.bookmarks = bookmarks;
+        }
     }
 
     enum MBTI {
         ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
-        INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, 햣 ISTJ
+        INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
     }
 
+    public class Bookmark{
+        int diary_num;
+        int page_num;
+        public Bookmark(int diary_num, int page_num){
+            this.diary_num = diary_num;
+            this.page_num = page_num;
+        }
+    }
 
 
 }
