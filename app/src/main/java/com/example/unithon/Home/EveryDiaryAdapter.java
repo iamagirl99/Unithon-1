@@ -34,10 +34,10 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
     }
 
     public int getItemCount() {
-        if (diaryList == null) {
+        if (filteredDiaryList == null) {
             return 0;
         }
-        return diaryList.size();
+        return filteredDiaryList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,13 +58,12 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
     }
 
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.onBind(diaryList.get(position));
+        holder.onBind(filteredDiaryList.get(position));
     }
 
     @Override
     public Filter getFilter() {
         return new Filter() {
-
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
@@ -75,9 +74,11 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
                     for (Model.Diary data : diaryList) {
                         if (data.getName().contains(charString)) {
                             filteringList.add(data);
+                            System.out.println("filtering " + filteringList);
                         }
                     }
                     filteredDiaryList = filteringList;
+                    System.out.println("filtered " + filteredDiaryList);
                 }
 
                 FilterResults filterResults = new FilterResults();

@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.unithon.Home.EveryDiaryFragment;
@@ -83,6 +84,24 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setText("My Diary");
         tabLayout.getTabAt(1).setText("All Diary");
+
+        Button changeBtn, myDiaryBtn;
+        changeBtn = findViewById(R.id.changeBtn);
+        myDiaryBtn = findViewById(R.id.myDiaryBtn);
+
+//        changeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//
+//        myDiaryBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
     }
 

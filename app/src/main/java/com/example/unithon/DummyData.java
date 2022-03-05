@@ -12,6 +12,14 @@ public class DummyData {
         }
     };
 
+    public static ArrayList<Integer> paperStyleSrcList = new ArrayList<Integer>() {
+        {
+            add(new Integer(R.drawable.cover_test));
+            add(new Integer(R.drawable.cover_test2));
+            add(new Integer(R.drawable.cover_test3));
+        }
+    };
+
     public DummyData() {
         init_diaries();
         init_pages();
@@ -21,13 +29,13 @@ public class DummyData {
         DummyData.diaries = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Model.Diary diary = new Model.Diary();
-            diary.pages = new ArrayList<>();
             DummyData.diaries.add(diary);
         }
     }
 
     void init_pages() {
         for (Model.Diary diary : diaries) {
+            diary.pages = new ArrayList<>();
             for (int i = 0; i < 10; i++) {
                 diary.pages.add(new Model.Page());
             }

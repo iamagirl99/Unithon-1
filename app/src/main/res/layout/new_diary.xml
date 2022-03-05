@@ -81,7 +81,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_margin="4dp">
 
                 <Button
                     android:layout_width="120dp"
@@ -92,14 +93,105 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/coverList"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    tools:listitem="@layout/offered_cover"/>
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="속지 설정"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
-        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
+                android:text="제목 정하기"
+                android:textSize="16sp" />
 
+            <EditText
+                android:id="@+id/decideDiaryName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="4dp"
+                android:ems="10"
+                android:hint="다이어리 제목을 정해주세요."
+                android:inputType="textPersonName"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="4dp"
+                android:text="비밀번호 설정(선택)"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/diaryPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="4dp"
+                android:ems="10"
+                android:hint="숫자 6자리를 입력해주세요."
+                android:inputType="textPersonName"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="4dp">
+
+                <Button
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:backgroundTint="@color/upload_color"
+                    android:layout_gravity="center"
+                    android:text="Upload Template"
+                    android:textColor="@color/black"></Button>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/paperStyleList"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"/>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/makeDiary"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/button_color1"
+                android:elevation="10dp"
+                android:text="Complete !"/>
+
+        </LinearLayout>
 
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

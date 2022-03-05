@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/imgv_read_left"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -36,8 +37,9 @@
 
     <ImageView
         android:id="@+id/imgv_read_right"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -59,8 +61,8 @@
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:background="@android:color/transparent"
@@ -68,50 +70,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
         android:elevation="1dp"
+        android:layout_margin="20dp"
+        app:tint="@color/purple_200"
         app:srcCompat="@drawable/ic_baseline_bookmark_24" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
+        android:layout_margin="20dp"
+        app:tint="@color/purple_200"
         app:srcCompat="@drawable/ic_baseline_menu_24" />
 
 
     <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/page_view_pager"
+        android:layout_gravity="center"
+        android:clipToPadding="false"
+        android:clipChildren="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        android:orientation="horizontal"
-        />
+        android:scaleType="fitXY"
+        android:layout_marginBottom="10dp"/>
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+        android:layout_margin="20dp"
+        android:tint="@color/purple_200"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        android:layout_margin="20dp"
+        app:tint="@color/purple_200"
         app:srcCompat="@drawable/ic_baseline_mode_comment_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
