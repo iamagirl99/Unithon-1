@@ -61,11 +61,7 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
 
         void onBind(Model.Diary diary) {
             tvName.setText(diary.getName());
-            String tagString = "";
-            for (String tag : diary.getHashtag()) {
-                tagString += tag + " ";
-            }
-            tvTags.setText(tagString);
+            tvTags.setText(diary.getHashtag());
         }
     }
 
