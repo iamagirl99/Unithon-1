@@ -44,7 +44,7 @@
         android:background="@drawable/round_button"
         android:backgroundTint="@color/button_color1"
         android:elevation="10dp"
-        android:fontFamily="@font/Streetwear"
+        android:fontFamily="@font/streetwear"
         android:text="Come In !"
         app:layout_constraintBottom_toTopOf="@+id/kakaoLoginButton"
         app:layout_constraintEnd_toEndOf="parent"
