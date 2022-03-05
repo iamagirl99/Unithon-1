@@ -26,13 +26,15 @@ public class DiaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("d ---> " + currentUser);
+        System.out.println("d1 ---> " + currentUser);
         setContentView(R.layout.activity_diary);
         context = this;
 
         Intent intent = getIntent();
         int diary_num = intent.getIntExtra("diary_num", -1);
         boolean is_mine = intent.getBooleanExtra("my_diary", false);
+
+        System.out.println("d2 ---> " + currentUser);
 
         memberTv = findViewById(R.id.memberTv);
         turnTv = findViewById(R.id.turnTv);
@@ -41,8 +43,9 @@ public class DiaryActivity extends AppCompatActivity {
 
         Model.Diary diary;
         if (is_mine) {
+            System.out.println("d3 ---> " + currentUser);
             diary = currentUser.getDiaries().get(diary_num).getDiary();
-
+            System.out.println("d4 ---> " + currentUser);
             if (diary.getTurnId().equals(currentUser.getId())) {
                 turnTv.setText("Your Turn!");
 
@@ -50,16 +53,19 @@ public class DiaryActivity extends AppCompatActivity {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        System.out.println("d5 ---> " + currentUser);
                         Intent intent = new Intent(context, WriteDiaryActivity.class);
                         context.startActivity(intent);
                     }
                 });
             } else {
                 turnTv.setText("Not Today!\n Take a Break");
+                System.out.println("d6 ---> " + currentUser);
                 // TODO imageView에 표지사진 설정
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        System.out.println("d7 ---> " + currentUser);
                         Intent intent = new Intent(context, ReadActivity.class);
                         intent.putExtra("diary_num", diary_num);
                         intent.putExtra("my_diary", is_mine);
@@ -74,6 +80,7 @@ public class DiaryActivity extends AppCompatActivity {
             joinBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    System.out.println("d8 ---> " + currentUser);
                     currentUser.addDiary(new Model.CustomDiary(diary));
                     DummyData.diaries.remove(diary);
                     Log.e("$$$$^^^^", currentUser.getDiaries().size() + "");
@@ -82,6 +89,9 @@ public class DiaryActivity extends AppCompatActivity {
                 }
             });
         }
+
+        System.out.println("diary ---> " + diary);
+        System.out.println("member ---> " + diary.getMembers());
         memberTv.setText("Member : " + diary.getMembers().size() + " / " + MAX_MEMBER);
     }
 }

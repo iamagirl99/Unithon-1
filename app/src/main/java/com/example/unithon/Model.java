@@ -33,6 +33,7 @@ public class Model {
             this.hashtag = hashtag;
             this.password = password;
             this.cover = cover;
+            this.members = new ArrayList<>();
             this.hashtag = "#자고싶다 #제발";
             this.turnId = "Me";
         }
