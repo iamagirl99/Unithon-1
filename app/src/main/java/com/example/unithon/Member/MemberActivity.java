@@ -27,7 +27,7 @@ public class MemberActivity extends AppCompatActivity {
         setContentView(R.layout.activity_member);
 
         Intent intent = getIntent();
-        int order = intent.getIntExtra("order");
+        int order = intent.getIntExtra("order", -1);
         diary = diaries.get(order);
         owner = diary.getOwner_id();
         userList = diary.getMembers();
