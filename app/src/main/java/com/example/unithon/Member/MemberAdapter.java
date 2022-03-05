@@ -57,7 +57,9 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.Holder>{
         if(!dataList.get(position).isManager){
             holder.duck.setVisibility(View.GONE);
         }
-        holder.delete_button.setVisibility(View.GONE);
+
+        //TODO : 현재 유저와 다이어리 주인 아이디 비교해서 책주인이면 버튼 보이게, 책주인 아니면 버튼 안보이게.
+        //holder.delete_button.setVisibility(View.GONE);
     }
 
     @Override

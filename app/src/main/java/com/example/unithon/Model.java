@@ -15,10 +15,6 @@ public class Model {
         String name, tags;
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
-<<<<<<< HEAD
-//        ArrayList<String> tags;
-=======
->>>>>>> 02d9a9e1a822cc4182cb9cb1af0e648159846040
         String owner_id;
         ArrayList<User> members;
 
@@ -36,6 +32,14 @@ public class Model {
 
         public String getTags() {
             return tags;
+        }
+
+        public ArrayList<User> getMembers() {
+            return members;
+        }
+
+        public String getOwner_id(){
+            return owner_id;
         }
     }
   
@@ -93,10 +97,21 @@ public class Model {
         }
         MBTI mbti;
         String id;
+
+        public String getMbti(){
+            return mbti.name();
+        }
+
+        public String getId(){
+            return id;
+        }
     }
 
     enum MBTI {
         ESTJ,
         INFP,
     }
+
+
+
 }
