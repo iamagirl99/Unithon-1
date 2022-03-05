@@ -1,5 +1,7 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login_layout);
 
         init_dummy();
+        System.out.println("l ---> " + currentUser);
 
         Button loginButton = findViewById(R.id.loginButton);
         ImageButton kakaoLoginButton = findViewById(R.id.kakaoLoginButton);
