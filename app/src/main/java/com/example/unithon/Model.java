@@ -147,7 +147,7 @@ public class Model {
 
     public static class CustomDiary {
         Diary diary;
-        ArrayList<Integer> bookmarks;
+        ArrayList<Page> bookmarks;
 
         public CustomDiary() {
             diary = new Diary();
@@ -163,7 +163,7 @@ public class Model {
             return diary;
         }
 
-        public ArrayList<Integer> getBookmarks() {
+        public ArrayList<Page> getBookmarks() {
             return bookmarks;
         }
     }
