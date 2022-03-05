@@ -15,15 +15,22 @@
             android:theme="@style/Theme.Unithon.NoActionBar"/>
         <activity
             android:name=".Comment.CommentActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Unithon.NoActionBar"/>
+            android:exported="true"
+            android:theme="@style/Theme.Unithon.NoActionBar">
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+        </activity>
         <activity
             android:name=".ReadActivity"
             android:exported="false" />
 
         <activity
             android:name=".DiaryActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.Unithon.NoActionBar">
 
         </activity>
