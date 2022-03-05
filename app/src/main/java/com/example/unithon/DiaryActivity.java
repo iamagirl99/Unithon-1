@@ -53,10 +53,7 @@ public class DiaryActivity extends AppCompatActivity {
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        Intent intent = new Intent(context, WriteDiaryActivity.class);
-//                        context.startActivity(intent);
-                        Intent intent = new Intent(context, ReadActivity.class);
-                        intent.putExtra("diary_num", diary_num);
+                        Intent intent = new Intent(context, WriteDiaryActivity.class);
                         context.startActivity(intent);
                     }
                 });
