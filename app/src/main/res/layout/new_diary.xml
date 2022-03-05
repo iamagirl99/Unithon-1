@@ -169,28 +169,6 @@
                 android:inputType="textPersonName"
                 android:textSize="13sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_margin="4dp">
-
-                <ImageView
-                    android:id="@+id/addTemplate"
-                    android:layout_width="120dp"
-                    android:layout_height="160dp"
-                    app:srcCompat="@drawable/upload_template"></ImageView>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/paperStyleList"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:orientation="horizontal"/>
-
-            </LinearLayout>
-
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/makeDiary"
                 android:layout_width="match_parent"

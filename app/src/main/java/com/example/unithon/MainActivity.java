@@ -1,5 +1,7 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -21,6 +24,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.unithon.Home.CustomDialog;
 import com.example.unithon.Home.EveryDiaryFragment;
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FragmentAdapter adapter;
+    private Button newDiary;
 
     public static DummyData dummyData;
     void init_dummy() {
@@ -65,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout=findViewById(R.id.layout_tabs);
         viewPager=findViewById(R.id.view_pager);
         adapter=new FragmentAdapter(getSupportFragmentManager(),1);
+        newDiary = findViewById(R.id.newDiary);
+
+        newDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NewDiaryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //툴바 변경
         setSupportActionBar(toolbar);
@@ -92,49 +106,27 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.navigation);
         navigationView.setClickable(true);
+        TextView tvMBTI = navigationView.getHeaderView(0).findViewById(R.id.my_mbti);
+        tvMBTI.setText(currentUser.mbti.name());
 
         Button changeBtn, myDiaryBtn;
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                System.out.println(item);
                 int id = item.getItemId();
-                System.out.println(id);
-                System.out.println(R.id.nav_change_MBTI);
-                Log.d("@@@#@@", "!!!!!!");
                 if (id == R.id.nav_change_MBTI) {
-                    Log.e("$$$$$", "@@@@");
-                    CustomDialog customDialog = new CustomDialog(getApplicationContext());
+                    CustomDialog customDialog = new CustomDialog(MainActivity.this, tvMBTI);
                     customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
                     customDialog.show();
+
                     return true;
                 }
-
                 return false;
             }
-
         });
-//        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//
-//                return true;
-//            }
-//        });
-//
-//        navigationView.getMenu().findItem(R.id.nav_my_diary).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//                return false;
-//            }
-//        });
     }
 
-//    private void setNavigationViewListener() {
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
