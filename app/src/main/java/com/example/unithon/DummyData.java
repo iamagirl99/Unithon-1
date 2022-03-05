@@ -9,7 +9,7 @@ public class DummyData {
     public static final int MAX_MEMBER = 7;
     public static Model.User currentUser;
     public static ArrayList<Model.Diary> diaries;
-    public static ArrayList<Integer> coverSrcList  = new ArrayList<Integer>() {
+    public static ArrayList<Integer> coverSrcList = new ArrayList<Integer>() {
         {
             add(new Integer(R.drawable.cover_test));
             add(new Integer(R.drawable.cover_test2));

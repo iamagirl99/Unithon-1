@@ -11,7 +11,6 @@
         android:id="@+id/imageView2"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:src="@drawable/diary_left_heart"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,9 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/adamina"
-        android:text="Other Diaries"
+        android:text="Other Diary"
         android:textColor="@color/black"
         android:textSize="30sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +37,6 @@
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
         android:src="@drawable/diary_right_heart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,12 +56,14 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/sv_search"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="100dp"
         app:closeIcon="@drawable/ic_baseline_clear_24"
         app:queryHint="검색어를 입력하시오"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView2"/>
