@@ -1,75 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".DiaryActivity">
 
-    <TextView
-        android:id="@+id/tv_header"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="My Diary"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toRightOf="@id/imgv_left_hart"
-        app:layout_constraintRight_toLeftOf="@id/imgv_right_hart"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imgv_left_hart"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/diary_left_heart" />
 
-    <ImageView
-        android:id="@+id/imgv_left_hart"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/tv_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/diary_left_hart" />
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginTop="30dp"
+            android:text="My Diary"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/imgv_right_hart"
-        android:layout_width="70dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_header"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/diary_right_hart" />
 
-    <ImageView
-        android:id="@+id/imgv_background_cat"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imgv_right_hart"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/diary_right_heart" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header"
-        app:srcCompat="@drawable/background_cats" />
+        android:background="@drawable/background_cats"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="530dp">
 
-    <ImageView
-        android:id="@+id/imgv_diary"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="70dp"
-        android:background="@drawable/diary_border_white"
-        android:padding="10dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/diary" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imgv_diary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/diary"
+                android:scaleType="center"
+                android:src="@drawable/image_border" />
+
+            <ImageView
+                android:id="@+id/imgv_left_postit"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="-11dp"
+                android:layout_marginTop="-20dp"
+                app:srcCompat="@drawable/diary_left_postit" />
+
+            <ImageView
+                android:id="@+id/imgv_right_postit"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="223dp"
+                android:layout_marginTop="214dp"
+                android:layout_marginEnd="0dp"
+                app:srcCompat="@drawable/diary_right_postit" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Member: 5/7"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today : Your turn"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginStart="30dp"/>
+    </LinearLayout>
+</LinearLayout>
