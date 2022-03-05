@@ -58,8 +58,8 @@ public class PagesGridAdapter extends BaseAdapter {
         pageImageView.setImageResource(context.getResources().getIdentifier(page.image, "drawable", context.getPackageName()));
 
 //        imageButton.setColorFilter(R.color.red, PorterDuff.Mode.SRC_ATOP);
-//        imageButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFF0000")));/
-        if (currentUser.diaries.get(diaryNum).getBookmarks().contains(i)) {
+//        imageButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFFF0000")));
+        if (currentUser.diaries.get(diaryNum).getBookmarks().contains(page)) {
             imageButton.setImageResource(R.drawable.ic_baseline_bookmark_pressed_24);
         } else {
             imageButton.setImageResource(R.drawable.ic_baseline_bookmark_24);
@@ -68,12 +68,12 @@ public class PagesGridAdapter extends BaseAdapter {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<Integer> bookmarks = currentUser.diaries.get(diaryNum).getBookmarks();
-                if (bookmarks.contains(i)) {
-                    bookmarks.remove(bookmarks.indexOf(i));
+                ArrayList<Model.Page> bookmarks = currentUser.diaries.get(diaryNum).getBookmarks();
+                if (bookmarks.contains(page)) {
+                    bookmarks.remove(page);
                     imageButton.setImageResource(R.drawable.ic_baseline_bookmark_24);
                 } else {
-                    bookmarks.add(i);
+                    bookmarks.add(page);
                     imageButton.setImageResource(R.drawable.ic_baseline_bookmark_pressed_24);
                 }
             }
