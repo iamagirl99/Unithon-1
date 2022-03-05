@@ -54,30 +54,31 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/background_cats" />
 
-    <ImageButton
-        android:id="@+id/bt_pick"
-        android:layout_width="380dp"
-        android:layout_height="389dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="399dp"
+        android:layout_height="548dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_read_name"
+        app:layout_constraintTop_toBottomOf="@+id/button"
         app:srcCompat="@drawable/start_writing" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="202dp"
-        android:layout_height="51dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/purple_round"
+        android:backgroundTint="#BD69FF"
         android:fontFamily="@font/Streetwear"
-        android:text="Start Writing!"
-        android:textColor="#000000"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bt_pick"
-        app:layout_constraintEnd_toEndOf="@+id/bt_pick"
-        app:layout_constraintStart_toStartOf="@+id/bt_pick"
-        app:layout_constraintTop_toTopOf="@+id/bt_pick" />
+        android:text="Add Picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_read_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
