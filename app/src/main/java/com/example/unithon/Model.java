@@ -15,7 +15,10 @@ public class Model {
         String name, tags;
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
+<<<<<<< HEAD
 //        ArrayList<String> tags;
+=======
+>>>>>>> 02d9a9e1a822cc4182cb9cb1af0e648159846040
         String owner_id;
         ArrayList<User> members;
 
