@@ -1,6 +1,7 @@
 package com.example.unithon;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DummyData {
     public static Model.User currentUser;
