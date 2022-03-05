@@ -14,6 +14,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FragmentAdapter adapter;
+    private Button newDiary;
 
     public static DummyData dummyData;
     void init_dummy() {
@@ -68,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout=findViewById(R.id.layout_tabs);
         viewPager=findViewById(R.id.view_pager);
         adapter=new FragmentAdapter(getSupportFragmentManager(),1);
+        newDiary = findViewById(R.id.newDiary);
+
+        newDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), NewDiaryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //툴바 변경
         setSupportActionBar(toolbar);
