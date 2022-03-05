@@ -29,6 +29,13 @@ public class CoverAdapter extends RecyclerView.Adapter<CoverAdapter.ViewHolder> 
 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.onBind(coverSrcList.get(position));
+
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
     }
 
     public int getItemCount() {
