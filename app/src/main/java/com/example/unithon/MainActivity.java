@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("@@@#@@", "!!!!!!");
                 if (id == R.id.nav_change_MBTI) {
                     Log.e("$$$$$", "@@@@");
-                    CustomDialog customDialog = new CustomDialog(getApplicationContext());
+                    CustomDialog customDialog = new CustomDialog(MainActivity.this);
                     customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
                     customDialog.show();
                     return true;
@@ -115,26 +115,8 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-//        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//
-//                return true;
-//            }
-//        });
-//
-//        navigationView.getMenu().findItem(R.id.nav_my_diary).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//                return false;
-//            }
-//        });
     }
 
-//    private void setNavigationViewListener() {
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
