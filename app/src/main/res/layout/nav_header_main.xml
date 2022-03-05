@@ -36,11 +36,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
+<<<<<<<<< Temporary merge branch 1
         android:fontFamily="@font/chosunilbo"
         android:gravity="center"
         android:text="ENFP"
         android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold" />
-
 </LinearLayout>
