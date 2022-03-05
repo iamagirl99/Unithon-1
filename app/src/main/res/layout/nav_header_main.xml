@@ -34,30 +34,13 @@
         android:id="@+id/my_mbti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ENTJ"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/chosunilbo"
+        android:gravity="center"
+        android:text="ENFP"
         android:textColor="@color/black"
         android:textSize="50sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:fontFamily="@font/chosunilbo"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center"/>
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/changeBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:text="Change My MBTI"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
-
-    <Button
-        android:id="@+id/myDiaryBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:text="My Diary"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
 </LinearLayout>
