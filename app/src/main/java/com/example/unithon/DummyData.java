@@ -23,25 +23,40 @@ public class DummyData {
 
     public DummyData() {
         currentUser = new Model.User();
+        init_my_diaries();
+        init_my_pages();
+        diaries = new ArrayList<>();
         init_diaries();
         init_pages();
     }
 
+    void init_my_diaries() {
+        for (int i = 0; i < 10; i++) {
+            Model.CustomDiary diary = new Model.CustomDiary();
+            currentUser.diaries.add(diary);
+        }
+    }
+
+    void init_my_pages() {
+        for (Model.CustomDiary diary : currentUser.diaries) {
+            for (int i = 0; i < 10; i++) {
+                diary.diary.pages.add(new Model.Page());
+            }
+        }
+    }
+
     void init_diaries() {
-        DummyData.diaries = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Model.Diary diary = new Model.Diary();
-            DummyData.diaries.add(diary);
+            diaries.add(diary);
         }
     }
 
     void init_pages() {
         for (Model.Diary diary : diaries) {
-            diary.pages = new ArrayList<>();
             for (int i = 0; i < 10; i++) {
                 diary.pages.add(new Model.Page());
             }
         }
-
     }
 }

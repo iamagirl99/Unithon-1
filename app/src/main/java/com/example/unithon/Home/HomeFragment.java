@@ -1,5 +1,7 @@
 package com.example.unithon.Home;
 
+import static com.example.unithon.DummyData.currentUser;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +28,7 @@ public class HomeFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
 
         gridView = rootView.findViewById(R.id.gridView);
-        HomeGridAdapter gridAdapter = new HomeGridAdapter(DummyData.diaries);
+        HomeGridAdapter gridAdapter = new HomeGridAdapter(currentUser.getDiaries());
         gridView.setAdapter(gridAdapter);
 
         return rootView;

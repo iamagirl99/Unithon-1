@@ -1,5 +1,6 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
 import static com.example.unithon.DummyData.diaries;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -135,7 +136,7 @@ public class WriteDiaryActivity extends AppCompatActivity {
                     int page_num = income_intent.getIntExtra("page_num", 0);
                     Model.Page np = new Model.Page();
                     np.image = new_page;
-                    diaries.get(diary_num).pages.add(np);
+                    DummyData.diaries.get(diary_num).pages.add(np);
                     Toast.makeText(getApplicationContext(), "photo saved", Toast.LENGTH_SHORT).show();
                     break;
             }
