@@ -42,21 +42,29 @@ public class DiaryActivity extends AppCompatActivity {
         if (is_mine) {
             diary = currentUser.getDiaries().get(diary_num).getDiary();
 
-            // TODO imageView에 표지사진 설정
-            imageView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, ReadActivity.class);
-                    intent.putExtra("diary_num", diary_num);
-                    intent.putExtra("my_diary", is_mine);
-                    context.startActivity(intent);
-                }
-            });
-
             if (diary.getTurnId().equals(currentUser.getId())) {
                 turnTv.setText("Your Turn!");
+
+                // TODO imageView에 표지사진 설정
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, WriteDiaryActivity.class);
+                        context.startActivity(intent);
+                    }
+                });
             } else {
                 turnTv.setText("Not Today!\n Take a Break");
+                // TODO imageView에 표지사진 설정
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, ReadActivity.class);
+                        intent.putExtra("diary_num", diary_num);
+                        intent.putExtra("my_diary", is_mine);
+                        context.startActivity(intent);
+                    }
+                });
             }
             joinBtn.setVisibility(View.INVISIBLE);
         } else {

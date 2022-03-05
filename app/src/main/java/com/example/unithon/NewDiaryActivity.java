@@ -85,22 +85,6 @@ public class NewDiaryActivity extends AppCompatActivity {
 
         paperStyleAdapter.submitList(paperStyleSrcList);
 
-
-        addCover.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                ImageView image = (ImageView) view;
-
-                if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    image.setColorFilter(0xaa111111, PorterDuff.Mode.SRC_OVER);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    image.setColorFilter(0x00000000, PorterDuff.Mode.SRC_OVER);
-                }
-
-                return true;
-            }
-        });
-
         addCover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

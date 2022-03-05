@@ -34,6 +34,7 @@ public class Model {
             this.password = password;
             this.cover = cover;
             this.hashtag = "#자고싶다 #제발";
+            this.turnId = "Me";
         }
 
         public String getTurnId() {
