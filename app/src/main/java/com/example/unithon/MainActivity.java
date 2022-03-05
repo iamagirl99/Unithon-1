@@ -1,5 +1,7 @@
 package com.example.unithon;
 
+import static com.example.unithon.DummyData.currentUser;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.unithon.Home.CustomDialog;
 import com.example.unithon.Home.EveryDiaryFragment;
@@ -92,49 +95,27 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.navigation);
         navigationView.setClickable(true);
+        TextView tvMBTI = navigationView.getHeaderView(0).findViewById(R.id.my_mbti);
+        tvMBTI.setText(currentUser.mbti.name());
 
         Button changeBtn, myDiaryBtn;
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                System.out.println(item);
                 int id = item.getItemId();
-                System.out.println(id);
-                System.out.println(R.id.nav_change_MBTI);
-                Log.d("@@@#@@", "!!!!!!");
                 if (id == R.id.nav_change_MBTI) {
-                    Log.e("$$$$$", "@@@@");
-                    CustomDialog customDialog = new CustomDialog(getApplicationContext());
+                    CustomDialog customDialog = new CustomDialog(MainActivity.this, tvMBTI);
                     customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
                     customDialog.show();
+
                     return true;
                 }
-
                 return false;
             }
-
         });
-//        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//
-//                return true;
-//            }
-//        });
-//
-//        navigationView.getMenu().findItem(R.id.nav_my_diary).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//                return false;
-//            }
-//        });
     }
 
-//    private void setNavigationViewListener() {
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
