@@ -18,9 +18,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.unithon.Home.CustomDialog;
 import com.example.unithon.Home.EveryDiaryFragment;
 import com.example.unithon.Home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -29,12 +31,15 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Toolbar toolbar;
     private ImageView imageView;
     private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -85,25 +90,51 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setText("My Diary");
         tabLayout.getTabAt(1).setText("All Diary");
 
+        navigationView = findViewById(R.id.navigation);
+        navigationView.setClickable(true);
+
         Button changeBtn, myDiaryBtn;
-        changeBtn = findViewById(R.id.changeBtn);
-        myDiaryBtn = findViewById(R.id.myDiaryBtn);
 
-//        changeBtn.setOnClickListener(new View.OnClickListener() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                System.out.println(item);
+                int id = item.getItemId();
+                System.out.println(id);
+                System.out.println(R.id.nav_change_MBTI);
+                Log.d("@@@#@@", "!!!!!!");
+                if (id == R.id.nav_change_MBTI) {
+                    Log.e("$$$$$", "@@@@");
+                    CustomDialog customDialog = new CustomDialog(getApplicationContext());
+                    customDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+                    customDialog.show();
+                    return true;
+                }
+
+                return false;
+            }
+
+        });
+//        navigationView.getMenu().findItem(R.id.nav_change_MBTI).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
-//            public void onClick(View view) {
+//            public boolean onMenuItemClick(MenuItem menuItem) {
 //
+//                return true;
 //            }
 //        });
 //
-//        myDiaryBtn.setOnClickListener(new View.OnClickListener() {
+//        navigationView.getMenu().findItem(R.id.nav_my_diary).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
-//            public void onClick(View view) {
-//
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//                return false;
 //            }
 //        });
-
     }
+
+//    private void setNavigationViewListener() {
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+//        navigationView.setNavigationItemSelectedListener(this);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,4 +149,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

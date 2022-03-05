@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.unithon.DiaryActivity;
 import com.example.unithon.Model;
 import com.example.unithon.R;
 import com.example.unithon.DiaryDetail.ReadActivity;
@@ -53,7 +54,7 @@ public class HomeGridAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ReadActivity.class);
+                Intent intent = new Intent(context, DiaryActivity.class);
                 intent.putExtra("order", i);
                 context.startActivity(intent);
             }

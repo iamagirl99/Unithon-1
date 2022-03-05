@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_write_diary.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/comment.xml" value="0.3799850463867188" />
+        <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/diary_image.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/fragment_others.xml" value="0.31804962158203126" />
@@ -32,6 +33,8 @@
         <entry key="app/src/main/res/layout/offered_cover.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/summary_diary.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/layout/tool_bar.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.43215433756510424" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.13697916666666668" />
       </map>
     </option>
   </component>
