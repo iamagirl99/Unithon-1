@@ -52,5 +52,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/makeDiary"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/button_color1"
+        android:elevation="10dp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/streetwear"
+        android:text="Complete !" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

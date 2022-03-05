@@ -122,8 +122,7 @@ public class NewDiaryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                String condition = conditionOfMember.getText().toString();
-                ArrayList<String> hashtag = (ArrayList<String>) Arrays.asList(condition.split(" "));
+                String hashtag = conditionOfMember.getText().toString();
 
                 String name = decideDiaryName.getText().toString();
 
