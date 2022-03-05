@@ -28,14 +28,7 @@ public class BookmarkedPagesActivity extends AppCompatActivity {
             return;
         }
 
-        ArrayList<Integer> bookmarks = diary.getBookmarks();
-        ArrayList<Model.Page> pages = new ArrayList<>();
-
-        for (Integer i : bookmarks) {
-            pages.add(diary.getDiary().getPages().get(i));
-        }
-
-        PagesGridAdapter gridAdapter = new PagesGridAdapter(pages, diary_num);
+        PagesGridAdapter gridAdapter = new PagesGridAdapter(diary.getBookmarks(), diary_num);
         gridView.setAdapter(gridAdapter);
     }
 }
