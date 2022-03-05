@@ -3,4 +3,7 @@
     <font android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/adamina"/>
+    <font android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/chosunilbo"/>
 </font-family>
