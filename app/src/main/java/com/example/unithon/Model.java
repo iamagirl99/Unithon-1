@@ -13,6 +13,9 @@ public class Model {
             this.bookmarks = new ArrayList<>();
             this.owner_id = "None";
             this.members = new ArrayList<>();
+            this.hashtag = new ArrayList<>();
+            this.password = "";
+            turnId = "Me";
         }
 
         public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
@@ -29,6 +32,10 @@ public class Model {
             this.uploadTemplate = uploadTemplate;
         }
 
+        public String getTurnId() {
+            return turnId;
+        }
+
         String name;
         ArrayList<String> hashtag;
         ArrayList<Page> pages;
@@ -40,6 +47,7 @@ public class Model {
         boolean isofferedTemplate;
         Drawable offeredTemplate;
         Uri uploadTemplate;
+        String turnId;
 
         public void setName(String name) {
             this.name = name;
@@ -194,7 +202,7 @@ public class Model {
     public static class User {
         public User() {
             this.mbti = MBTI.ESTJ;
-            this.id = "None";
+            this.id = "Me";
             this.pages = new ArrayList<>();
             this.diaries = new ArrayList<>();
         }
