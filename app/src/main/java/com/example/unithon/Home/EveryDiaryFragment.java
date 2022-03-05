@@ -23,6 +23,7 @@ public class EveryDiaryFragment extends Fragment {
     RecyclerView rcvDiaries;
     ArrayList<Model.Diary> diaryArrayList;
     private SearchView svSearch;
+    public static int isHashTag;
 
     @Nullable
     @Override
@@ -51,8 +52,10 @@ public class EveryDiaryFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 System.out.println(newText);
                 if(newText.length() != 0 && newText.charAt(0) == '#') {
+                    isHashTag = 1;
                     diaryAdapter.getFilter().filter(newText);
                 } else {
+                    isHashTag = 0;
                     diaryAdapter.getFilter().filter(newText);
                 }
                 return false;
