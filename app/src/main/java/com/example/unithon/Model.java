@@ -8,10 +8,14 @@ public class Model {
             this.name = "테스트 다이어리";
             this.pages = new ArrayList<>();
             this.bookmarks = new ArrayList<>();
+            this.owner_id = "None";
+            this.members = new ArrayList<>()
         }
         String name;
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
+        String owner_id;
+        ArrayList<User> members;
 
         public String getName() {
             return name;
@@ -67,6 +71,19 @@ public class Model {
             this.image = "diary";
         }
         String image;
+    }
 
+    public static class User {
+        public User() {
+            this.mbti = MBTI.ESTJ;
+            this.id = "None";
+        }
+        MBTI mbti;
+        String id;
+    }
+
+    enum MBTI {
+        ESTJ,
+        INFP,
     }
 }

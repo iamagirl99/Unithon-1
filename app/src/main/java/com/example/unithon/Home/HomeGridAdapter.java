@@ -1,6 +1,7 @@
 package com.example.unithon.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.unithon.Model;
 import com.example.unithon.R;
+import com.example.unithon.ReadActivity;
 
 import java.util.ArrayList;
 
@@ -46,6 +48,15 @@ public class HomeGridAdapter extends BaseAdapter {
 
         TextView diaryNameTv = view.findViewById(R.id.diary_name);
         diaryNameTv.setText(diary.getName());
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ReadActivity.class);
+                intent.putExtra("order", i);
+                context.startActivity(intent);
+            }
+        });
 
         return view;
     }
