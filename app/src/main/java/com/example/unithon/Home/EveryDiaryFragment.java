@@ -37,7 +37,7 @@ public class EveryDiaryFragment extends Fragment {
         svSearch = (SearchView) rootView.findViewById(R.id.sv_search);
 
         rcvDiaries = rootView.findViewById(R.id.others_rcv);
-        diaryAdapter = new EveryDiaryAdapter();
+        diaryAdapter = new EveryDiaryAdapter(getActivity());
         rcvDiaries.setAdapter(diaryAdapter);
         diaryAdapter.submitList(diaryArrayList);
 

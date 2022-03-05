@@ -33,9 +33,10 @@ public class ReadActivity extends AppCompatActivity {
         Log.e("@@@@@@", "Ha...");
 
         Intent intent = getIntent();
-        int order = intent.getIntExtra("order", -1);
+        int diary_num = intent.getIntExtra("diary_num", -1);
 
-        if (order == -1) {
+
+        if (diary_num == -1) {
             Log.e("READ ACTIVITY", "Intent error");
             return;
         }
@@ -44,14 +45,15 @@ public class ReadActivity extends AppCompatActivity {
 
         viewPager2.setPageTransformer(new PageCurlPageTransformer());
 
-        DiaryViewPagerAdapter viewPagerAdapter = new DiaryViewPagerAdapter(this, DummyData.diaries.get(order).getPages());
+        DiaryViewPagerAdapter viewPagerAdapter = new DiaryViewPagerAdapter(this, DummyData.diaries.get(diary_num).getPages());
         viewPager2.setAdapter(viewPagerAdapter);
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         comment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CommentActivity.class);
-                intent.putExtra("order", order);
+                intent.putExtra("diary_num", diary_num);
+                intent.putExtra("page_num", viewPager2.getCurrentItem());
                 startActivity(intent);
             }
         });
@@ -60,6 +62,7 @@ public class ReadActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO : 넘겨준 책 번호와 북마크한 페이지 번호 더미데이터에 추가.
+
             }
         });
 
@@ -68,6 +71,8 @@ public class ReadActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // TODO : 어떤 다이어리인지 인덱스 번호 인텐트에 담아서 보내기.
                 Intent intent = new Intent(getApplicationContext(), GatherDiaryActivity.class);
+                intent.putExtra("diary_num", diary_num);
+                intent.putExtra("page_num", viewPager2.getCurrentItem());
                 startActivity(intent);
             }
         });
@@ -91,7 +96,6 @@ public class ReadActivity extends AppCompatActivity {
                 }
             }
         }
-
 
     }
 }
