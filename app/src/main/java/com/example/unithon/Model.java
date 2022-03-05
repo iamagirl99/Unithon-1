@@ -201,7 +201,7 @@ public class Model {
 
     public static class User {
         public User() {
-            this.mbti = MBTI.ESTJ;
+            this.mbti = MBTI.INTJ;
             this.id = "Me";
             this.pages = new ArrayList<>();
             this.diaries = new ArrayList<>();
@@ -213,6 +213,10 @@ public class Model {
 
         public String getMbti(){
             return mbti.name();
+        }
+
+        public void setMbti(MBTI mbti) {
+            this.mbti = mbti;
         }
 
         public String getId(){
@@ -230,7 +234,7 @@ public class Model {
         }
     }
 
-    enum MBTI {
+    public enum MBTI {
         ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
         INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, ISTJ
     }
