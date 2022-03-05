@@ -61,7 +61,11 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
 
         void onBind(Model.Diary diary) {
             tvName.setText(diary.getName());
-            tvTags.setText(diary.getTags());
+            String tagString = "";
+            for (String tag : diary.getHashtag()) {
+                tagString += tag + " ";
+            }
+            tvTags.setText(tagString);
         }
     }
 
@@ -72,6 +76,7 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
             public void onClick(View view) {
                 Intent intent = new Intent(context, DiaryActivity.class);
                 intent.putExtra("diary_num", position);
+                intent.putExtra("my_diary", false);
                 context.startActivity(intent);
             }
         });

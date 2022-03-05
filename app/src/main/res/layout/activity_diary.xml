@@ -89,6 +89,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/memberTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Member: 5/7"
@@ -98,6 +99,7 @@
             android:layout_marginStart="30dp"/>
 
         <TextView
+            android:id="@+id/turnTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Today : Your turn"
