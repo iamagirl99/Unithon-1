@@ -93,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
         TextView tvMBTI = navigationView.getHeaderView(0).findViewById(R.id.my_mbti);
         tvMBTI.setText(currentUser.mbti.name());
 
-        Button changeBtn, myDiaryBtn;
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

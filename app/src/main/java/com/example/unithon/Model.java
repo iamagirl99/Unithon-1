@@ -11,11 +11,12 @@ public class Model {
         public Diary() {
             this.name = "테스트 다이어리";
             this.pages = new ArrayList<>();
-            this.owner_id = "None";
+            this.owner_id = "Me";
             this.members = new ArrayList<>();
             this.hashtag = "#해커톤 #재밌다";
             this.password = "";
             turnId = "Me";
+            members.add(new User(MBTI.INFJ, "Me"));
         }
 
         public Diary(String name, String owner_id, String turnId) {
@@ -26,6 +27,7 @@ public class Model {
             this.password = "";
             this.turnId = turnId;
             hashtag = "#심심해 #졸려";
+            members.add(new User(MBTI.INFJ, owner_id));
         }
 
         public Diary(String name, String cover, String hashtag, String password) {
@@ -35,6 +37,9 @@ public class Model {
             this.cover = cover;
             this.hashtag = "#자고싶다 #제발";
             this.turnId = "Me";
+            this.pages = new ArrayList<>();
+            this.members = new ArrayList<>();
+            members.add(new User());
         }
 
         public String getTurnId() {
