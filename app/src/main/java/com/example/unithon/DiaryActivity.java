@@ -26,6 +26,7 @@ public class DiaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("d ---> " + currentUser);
         setContentView(R.layout.activity_diary);
         context = this;
 
