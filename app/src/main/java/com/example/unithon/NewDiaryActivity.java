@@ -138,8 +138,9 @@ public class NewDiaryActivity extends AppCompatActivity {
                 }
 
                 //TODO : name, password, image 다 스트링으로 바꿔놔서 이거 저장만 하면됨.
-
             }
+
+
        });
 
 
