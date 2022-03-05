@@ -2,35 +2,29 @@ package com.example.unithon;
 
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Model {
     public static class Diary {
-        public static final int SIZE = 3;
 
         public Diary() {
             this.name = "테스트 다이어리";
             this.pages = new ArrayList<>();
             this.bookmarks = new ArrayList<>();
-            Arrays.fill(coverType, false);
-            Arrays.fill(templateType, false);
             this.owner_id = "None";
             this.members = new ArrayList<>();
         }
 
-        public Diary(String name, boolean[] coverType, Drawable offeredCover, Uri uploadCover,
-                     ArrayList<String> hashtag, String password, boolean[] templateType,
+        public Diary(String name, boolean isofferedCover, Drawable offeredCover, Uri uploadCover,
+                     ArrayList<String> hashtag, String password, boolean isofferedTemplate,
                      Drawable offeredTemplate, Uri uploadTemplate) {
             this.name = name;
-            this.coverType = coverType;
+            this.isofferedCover = isofferedCover;
             this.offeredCover = offeredCover;
             this.uploadCover = uploadCover;
             this.hashtag = hashtag;
             this.password = password;
-            this.templateType = templateType;
+            this.isofferedTemplate = isofferedTemplate;
             this.offeredTemplate = offeredTemplate;
             this.uploadTemplate = uploadTemplate;
         }
@@ -40,16 +34,12 @@ public class Model {
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
         String password;
-        boolean[] coverType = new boolean[SIZE + 1];
+        boolean isofferedCover;
         Drawable offeredCover;
         Uri uploadCover;
-        boolean[] templateType = new boolean[SIZE + 1];
+        boolean isofferedTemplate;
         Drawable offeredTemplate;
         Uri uploadTemplate;
-
-        public static int getSIZE() {
-            return SIZE;
-        }
 
         public void setName(String name) {
             this.name = name;
@@ -79,14 +69,6 @@ public class Model {
             this.password = password;
         }
 
-        public boolean[] getCoverType() {
-            return coverType;
-        }
-
-        public void setCoverType(boolean[] coverType) {
-            this.coverType = coverType;
-        }
-
         public Drawable getOfferedCover() {
             return offeredCover;
         }
@@ -101,14 +83,6 @@ public class Model {
 
         public void setUploadCover(Uri uploadCover) {
             this.uploadCover = uploadCover;
-        }
-
-        public boolean[] getTemplateType() {
-            return templateType;
-        }
-
-        public void setTemplateType(boolean[] templateType) {
-            this.templateType = templateType;
         }
 
         public Drawable getOfferedTemplate() {
