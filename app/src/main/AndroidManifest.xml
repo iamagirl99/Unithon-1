@@ -30,12 +30,14 @@ package="com.example.unithon">
     <!--        </activity>-->
 
     <activity
-        android:name=".Comment.CommentActivity"
-        android:exported="true"
-        android:theme="@style/Theme.Unithon.NoActionBar" />
-    <activity
         android:name=".ReadActivity"
-        android:exported="false" />
+        android:exported="false" 
+        android:theme="@style/Theme.Unithon.NoActionBar"/>
+
+        <activity
+            android:name=".Comment.CommentActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Unithon.NoActionBar"/>
 
     <activity
         android:name=".DiaryActivity"
@@ -65,10 +67,18 @@ package="com.example.unithon">
         </intent-filter>
     </activity>
 
+
     <activity
         android:name="com.example.unithon.Member.MemberActivity"
         android:exported="true"
         android:theme="@style/Theme.Unithon.NoActionBar">
+
+        <activity
+            android:name=".NewDiaryActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Unithon.NoActionBar">
+        </activity>
+
 
     </activity>
 </application>

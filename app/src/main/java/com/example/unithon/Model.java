@@ -81,7 +81,7 @@ public class Model {
       
     public static class Page {
         public Page() {
-            this.image = "diary";
+            this.image = "cover_test";
         }
 
         public String getImage() {
@@ -108,8 +108,8 @@ public class Model {
     }
 
     enum MBTI {
-        ESTJ,
-        INFP,
+        ENFP, ENFJ, ENTP, ENTJ, ESFP, ESFJ, ESTP, ESTJ,
+        INFP, INFJ, INTP, INTJ, ISFP, ISFJ, ISTP, 햣 ISTJ
     }
 
 
