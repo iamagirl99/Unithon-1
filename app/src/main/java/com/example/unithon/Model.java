@@ -8,10 +8,12 @@ public class Model {
             this.name = "테스트 다이어리";
             this.pages = new ArrayList<>();
             this.bookmarks = new ArrayList<>();
+            this.tags = "#졸려";
         }
-        String name;
+        String name, tags;
         ArrayList<Page> pages;
         ArrayList<Integer> bookmarks;
+//        ArrayList<String> tags;
 
         public String getName() {
             return name;
@@ -23,6 +25,10 @@ public class Model {
 
         public ArrayList<Integer> getBookmarks() {
             return bookmarks;
+        }
+
+        public String getTags() {
+            return tags;
         }
     }
   
