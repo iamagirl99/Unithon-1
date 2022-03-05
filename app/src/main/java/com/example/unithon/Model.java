@@ -100,6 +100,14 @@ public class Model {
             diary = new Diary();
             bookmarks = new ArrayList<>();
         }
+
+        public Diary getDiary() {
+            return diary;
+        }
+
+        public ArrayList<PageInfo> getBookmarks() {
+            return bookmarks;
+        }
     }
 
     public static class User {
@@ -123,6 +131,10 @@ public class Model {
         }
 
         public ArrayList<PageInfo> getPages() { return pages;}
+
+        public ArrayList<CustomDiary> getDiaries() {
+            return diaries;
+        }
 
         public void setBookmarks(ArrayList<PageInfo> my_diary){
             this.pages = my_diary;
