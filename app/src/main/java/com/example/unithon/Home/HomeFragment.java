@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
     GridView gridView;
     HomeGridAdapter gridAdapter;
-    private Button newDiary;
+    Button newDiary;
 
     @Nullable
     @Override
@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
         newDiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), NewDiaryActivity.class);
+                Intent intent = new Intent(getContext(), NewDiaryActivity.class);
                 startActivity(intent);
             }
         });
