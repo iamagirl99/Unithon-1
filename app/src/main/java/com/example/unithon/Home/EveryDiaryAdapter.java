@@ -1,5 +1,7 @@
 package com.example.unithon.Home;
 
+import static com.example.unithon.Home.EveryDiaryFragment.isHashTag;
+
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
@@ -89,7 +91,10 @@ public class EveryDiaryAdapter extends RecyclerView.Adapter<EveryDiaryAdapter.Vi
                 } else {
                     ArrayList<Model.Diary> filteringList = new ArrayList<>();
                     for (Model.Diary data : diaryList) {
-                        if (data.getName().contains(charString)) {
+                        if (isHashTag == 0 && data.getName().contains(charString)) {
+                            filteringList.add(data);
+                            System.out.println("filtering " + filteringList);
+                        } else if (isHashTag == 1 && data.getHashtag().contains(charString)) {
                             filteringList.add(data);
                             System.out.println("filtering " + filteringList);
                         }
