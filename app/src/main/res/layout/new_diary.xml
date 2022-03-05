@@ -85,6 +85,7 @@
                 android:layout_margin="4dp">
 
                 <Button
+                    android:id="@+id/addCover"
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:backgroundTint="@color/upload_color"
@@ -164,6 +165,7 @@
                 android:layout_margin="4dp">
 
                 <Button
+                    android:id="@+id/addTemplate"
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:backgroundTint="@color/upload_color"
