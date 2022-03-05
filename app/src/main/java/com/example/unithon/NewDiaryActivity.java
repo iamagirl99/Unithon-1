@@ -71,6 +71,8 @@ public class NewDiaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        System.out.println("n1 ---> " + currentUser);
+
         setContentView(R.layout.new_diary);
 
         conditionOfMember = findViewById(R.id.conditionOfMember);
@@ -153,6 +155,7 @@ public class NewDiaryActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                System.out.println("n2 ---> " + currentUser);
                 name = decideDiaryName.getText().toString();
                 password = diaryPassword.getText().toString();
                 if (absolutePath_cover.length() != 0) {
